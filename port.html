@@ -56,14 +56,24 @@
             </div>
         </div>
 
-        <!-- charts section -->
+        <!-- First charts section -->
         <div class="charts__container">
             <div class="charts__content">
-                <h1>C1</h1>
+                <h1>Challenge 1</h1>
                 <p>Size of Green Bond Market</p>
                 <div id="vis1"></div>
-                <p>Size of Green Bond Market</p>
+                <p>Number of Green Bonds</p>
                 <div id="vis2"></div>
+             </div>
+        </div>
+        <!-- Second charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 2</h1>
+                <p>UK Exports, Imports and Trade Balance</p>
+                <div id="vis3"></div>
+                <p>UK Economic Growth</p>
+                <div id="vis4"></div>
              </div>
         </div>
 
@@ -124,10 +134,19 @@
                 },
                 "mark": {"type": "line", "color": "#88C0D0"},
                 "encoding": {
-                    "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0}},
-                    "y": {"field": "amount", "type": "quantitative", "title": "Market Value (USD millions)"}
+                    "x": {
+                        "field": "year", 
+                        "type": "ordinal", 
+                        "axis": {
+                            "labelAngle": 0
+                        }
+                    },
+                    "y": {
+                        "field": "amount",
+                        "type": "quantitative", 
+                        "title": "Market Value (USD millions)"
+                    }
                 },
-                "title": ""
             };
 
             const spec2 = {
@@ -168,16 +187,154 @@
                 },
                 "mark": {"type": "line", "color": "#BF616A"},
                 "encoding": {
-                    "x": {"field": "year", "type": "ordinal", "axis": {"labelAngle": 0}},
-                    "y": {"field": "bonds", "type": "quantitative", "title": "Number of Green Bonds (USD millions)"}
+                    "x": {
+                        "field": "year",
+                        "type": "ordinal", 
+                        "axis": {
+                            "labelAngle": 0
+                        }
+                    },
+                    "y": {
+                        "field": "bonds", 
+                        "type": "quantitative", 
+                        "title": "Number of Green Bonds"
+                    }
                 },
-                "title": ""
             };
+
+            const spec3 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "UK Trade Balance",
+                "width": 600,  
+                "height": 400, 
+                "background": "#1C1F24", 
+                "config": {
+                    "axis": {
+                        "labelColor": "#FFFFFF",
+                        "titleColor": "#FFFFFF", 
+                        "gridColor": "#4C566A" 
+                    },
+                    "legend": {
+                        "labelColor": "#FFFFFF", 
+                        "titleColor": "#D8DEE9" 
+                    },
+                    "title": {
+                        "color": "#FFFFFF" 
+                    }
+                },
+                "data": {
+                    "values": [
+                        {"category": "Exports", "value": 535135.29},
+                        {"category": "Imports", "value": 821631.45},
+                        {"category": "Trade Balance", "value": -286496.16}
+                    ]
+                },
+                "mark": "bar",
+                "encoding": {
+                    "x": {
+                        "field": "category",
+                        "type": "nominal",
+                        "axis": {
+                            "labelAngle": 0,
+                            "labelColor": "#FFFFFF" 
+                        }
+                    },
+                    "y": {
+                        "field": "value",
+                        "type": "quantitative",
+                        "axis": {
+                            "title": "Value (millions USD)",
+                            "titleColor": "#FFFFFF", 
+                            "labelColor": "#FFFFFF" 
+                        }
+                    },
+                    "color": {
+                        "field": "category",
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["Exports", "Imports", "Trade Balance"],
+                            "range": ["#4c78a8", "#f58518", "#e45756"]
+                        }
+                    },
+                    "tooltip": [
+                        {"field": "category", "type": "nominal"},
+                        {"field": "value", "type": "quantitative", "format": ",.2f"}
+                    ]
+                },
+                "config": {
+                    "axis": {
+                        "grid": false
+                    },
+                    "view": {
+                        "stroke": null
+                    }
+                }
+            };
+
+            const spec4 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "UK Monthly GDP Growth",
+                "width": 600,
+                "height": 400,
+                "data": {
+                    "values": [
+                        {"date": "2023-01", "gdp": 100.0},
+                        {"date": "2023-02", "gdp": 100.2},
+                        {"date": "2023-03", "gdp": 100.4},
+                        {"date": "2023-04", "gdp": 100.6},
+                        {"date": "2023-05", "gdp": 100.5},
+                        {"date": "2023-06", "gdp": 101.0}
+                    ]
+                },
+                "mark": {
+                    "type": "line",
+                    "point": true,
+                    "color": "#4c78a8"
+                },
+                "encoding": {
+                    "x": {
+                        "field": "date",
+                        "type": "temporal",
+                        "axis": {
+                            "title": "Month",
+                            "labelAngle": 45,
+                            "labelColor": "#FFFFFF",
+                            "titleColor": "#FFFFFF"
+                        }
+                    },
+                    "y": {
+                        "field": "gdp",
+                        "type": "quantitative",
+                        "axis": {
+                            "title": "GDP Index (Jan 2023 = 100)",
+                            "labelColor": "#FFFFFF",
+                            "titleColor": "#FFFFFF"
+                        }
+                    },
+                    "tooltip": [
+                        {"field": "date", "type": "temporal", "title": "Month"},
+                        {"field": "gdp", "type": "quantitative", "title": "GDP Index"}
+                    ]
+                },
+                "config": {
+                    "background": "#1C1F24",
+                    "view": {
+                        "stroke": "transparent"
+                    }
+                }
+            };
+
         
             vegaEmbed('#vis1', spec1).then(function(result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
             vegaEmbed('#vis2', spec2).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis3', spec3).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis4', spec4).then(function(result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
             src="app.js"
