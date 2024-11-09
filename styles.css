@@ -305,7 +305,24 @@
     align-items: center;
 }
 
-.chart1__content {
+.charts__content {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color:#f77062;
+}
+
+/*about sectioin*/
+.about__container {
+    background-color: #141414;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.charts__content {
     margin-top: 1rem;
     font-size: 2rem;
     font-weight: 700;
