@@ -60,9 +60,9 @@
         <div class="charts__container">
             <div class="charts__content">
                 <h1>Challenge 1</h1>
-                <p>Size of Green Bond Market</p>
+                <p></p>
                 <div id="vis1"></div>
-                <p>Number of Green Bonds</p>
+                <p></p>
                 <div id="vis2"></div>
              </div>
         </div>
@@ -70,10 +70,30 @@
         <div class="charts__container">
             <div class="charts__content">
                 <h1>Challenge 2</h1>
-                <p>UK Exports, Imports and Trade Balance</p>
+                <p></p>
                 <div id="vis3"></div>
-                <p>UK Economic Growth</p>
+                <p></p>
                 <div id="vis4"></div>
+             </div>
+        </div>
+        <!-- Third charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 3</h1>
+                <p>This section is dedicated to discussing the topic "How Can We Build a Sustainable Planet" adressed at the Economic Observatory Conference.</p>
+                <div id="vis5"></div>
+                <p></p>
+                <div id="vis6"></div>
+             </div>
+        </div>
+         <!-- Third charts section-->
+         <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 6</h1>
+                <p></p>
+                <div id="vis7"></div>
+                <p></p>
+                <div id="vis8"></div>
              </div>
         </div>
 
@@ -98,232 +118,294 @@
         <script>
             const spec1 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "A simple bar chart with embedded data.",
-                "width": 600,  
-                "height": 400, 
-                "background": "#1C1F24", 
-                "config": {
-                    "axis": {
-                        "labelColor": "#D8DEE9",
-                        "titleColor": "#D8DEE9", 
-                        "gridColor": "#4C566A" 
-                    },
-                    "legend": {
-                        "labelColor": "#D8DEE9", 
-                        "titleColor": "#D8DEE9" 
-                    },
-                    "title": {
-                        "color": "#D8DEE9" 
-                    }
+                "description": "Carbon per capita by country",
+                "title": {
+                    "text": "Innovation: environmental technology patents",
+                    "subtitle": "Environmental patents as share national total, G7 | Source: OECD",
+                    "subtitleFontStyle": "italic",
+                    "subtitleFontSize": 10,
+                    "anchor": "start",
+                    "color": "white",
+                    "subtitleColor": "white" 
                 },
                 "data": {
-                    "values": [
-                        {"year": "2010", "amount": 3.9},
-                        {"year": "2011", "amount": 3},
-                        {"year": "2012", "amount": 2.3},
-                        {"year": "2013", "amount": 15},
-                        {"year": "2014", "amount": 36.6},
-                        {"year": "2015", "amount": 42.2},
-                        {"year": "2016", "amount": 81.6},
-                        {"year": "2017", "amount": 155.5},
-                        {"year": "2018", "amount": 171.2},
-                        {"year": "2019", "amount": 258.9},
-                        {"year": "2020", "amount": 290.1},
-                        {"year": "2021", "amount": 522.7}
-                    ]
+                    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/chartENV11.csv"
                 },
-                "mark": {"type": "line", "color": "#88C0D0"},
+                "height": 600,
+                "width": 800,
+                "background": "#1C1F24", 
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+                "mark": {"type": "line",
+                    "point": false,
+                    "interpolate": "linear",
+                    "color": "white"},
                 "encoding": {
                     "x": {
-                        "field": "year", 
-                        "type": "ordinal", 
-                        "axis": {
-                            "labelAngle": 0
-                        }
+                        "field": "Time",
+                        "type": "temporal",
+                        "title": "",
+                        "axis": {"grid": false, "labelColor": "white"}
                     },
                     "y": {
-                        "field": "amount",
-                        "type": "quantitative", 
-                        "title": "Market Value (USD millions)"
-                    }
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "",
+                        "axis": {"gridColor": "#333333", "labelColor": "white"},
+                        "sort": [],
+                        "scale": {"domain": [0, 18]}
+                    },
+                    "color": {
+                        "field": "Country",
+                        "title": null,
+                        "legend": {"orient": "bottom-right"},
+                        "type": "nominal",
+                        "sort": [],
+                        "scale": {"scheme": "yellowgreenblue"}
+                    },
+                    "tooltip": [
+                    {
+                        "field": "Time",
+                        "type": "temporal",
+                        "timeUnit": "year",
+                        "title": "Year"
+                    },
+                    {"field": "Value", "type": "quantitative", "title": "Green patents (%)"},
+                    {"field": "Country"}
+                    ]
                 },
+                "config": {
+                    "view": {
+                    "stroke": null,  // removes the border
+                    "center": true   // centers the view
+                    }
+                 }
+
             };
 
             const spec2 = {
-                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "A simple bar chart with embedded data.",
-                "width": 600,  
-                "height": 400, 
-                "background": "#1C1F24", 
-                "config": {
-                    "axis": {
-                        "labelColor": "#D8DEE9",
-                        "titleColor": "#D8DEE9", 
-                        "gridColor": "#4C566A" 
-                    },
-                    "legend": {
-                        "labelColor": "#D8DEE9", 
-                        "titleColor": "#D8DEE9" 
-                    },
-                    "title": {
-                        "color": "#D8DEE9" 
-                    }
+                "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                "description": "Productivity UK",
+                "title": {
+                    "text": "UK productivity, 1971-2021",
+                    "subtitle": "Labour productivity. Output per hour worked, 2018==100 | Source: ONS",
+                    "subtitleFontStyle": "italic",
+                    "subtitleFontSize": 10,
+                    "anchor": "start",
+                    "color": "white",
+                    "subtitleColor": "white" 
                 },
                 "data": {
-                    "values": [
-                        {"year": "2010", "bonds": 10},
-                        {"year": "2011", "bonds": 15},
-                        {"year": "2012", "bonds": 20},
-                        {"year": "2013", "bonds": 30},
-                        {"year": "2014", "bonds": 50},
-                        {"year": "2015", "bonds": 80},
-                        {"year": "2016", "bonds": 120},
-                        {"year": "2017", "bonds": 200},
-                        {"year": "2018", "bonds": 250},
-                        {"year": "2019", "bonds": 300},
-                        {"year": "2020", "bonds": 350},
-                        {"year": "2021", "bonds": 400}
-                    ]
+                    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/GI4.DataHub.GrowthInnovationOutputperHour.csv"
                 },
-                "mark": {"type": "line", "color": "#BF616A"},
+                "height": 600,
+                "width": 800,
+                "background": "#1C1F24", 
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+                "mark": {
+                    "type": "line",
+                    "point": false,
+                    "interpolate": "monotone",
+                    "color": "blueviolet"
+                },
                 "encoding": {
                     "x": {
-                        "field": "year",
-                        "type": "ordinal", 
-                        "axis": {
-                            "labelAngle": 0
-                        }
+                    "field": "Date",
+                    "type": "temporal",
+                    "axis": {
+                        "title": null,
+                        "grid": false,
+                        "labelColor": "white",
+                        "labelSeparation": 20,
+                        "ticks": false
+                    }
                     },
                     "y": {
-                        "field": "bonds", 
-                        "type": "quantitative", 
-                        "title": "Number of Green Bonds"
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": null,
+                        "axis": {"gridColor": "#333333", "labelColor": "white"}
                     }
-                },
+                }
             };
 
             const spec3 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "UK Trade Balance",
-                "width": 600,  
-                "height": 400, 
+                "title": {
+                    "text": "UK Business Investment",
+                    "anchor": "start",
+                    "subtitle": "Business Gov GFCF, % of GDP | Source: ONS through ECO API",
+                    "subtitleFontStyle": "italic",
+                    "fontSize": 14,
+                    "subtitleFontSize": 12,
+                    "color": "#FFFFFF",  
+                    "subtitleColor": "#FFFFFF"  
+                },
+                "height": 600,
+                "width": 800,
+                "autosize": {"type": "fit", "contains": "padding", "resize": false},
                 "background": "#1C1F24", 
-                "config": {
-                    "axis": {
-                        "labelColor": "#FFFFFF",
-                        "titleColor": "#FFFFFF", 
-                        "gridColor": "#4C566A" 
-                    },
-                    "legend": {
-                        "labelColor": "#FFFFFF", 
-                        "titleColor": "#D8DEE9" 
-                    },
-                    "title": {
-                        "color": "#FFFFFF" 
-                    }
-                },
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0}, 
                 "data": {
-                    "values": [
-                        {"category": "Exports", "value": 535135.29},
-                        {"category": "Imports", "value": 821631.45},
-                        {"category": "Trade Balance", "value": -286496.16}
-                    ]
+                    "url": "https://api.economicsobservatory.com/gbr/binv?vega",
+                    "format": {"type": "json"}
                 },
-                "mark": "bar",
+                "mark": {"type": "line", "color": "#f4134d", "strokeWidth": 2}, 
                 "encoding": {
                     "x": {
-                        "field": "category",
-                        "type": "nominal",
+                        "field": "date",
+                        "type": "temporal",
                         "axis": {
-                            "labelAngle": 0,
-                            "labelColor": "#FFFFFF" 
+                            "title": "",
+                            "labelColor": "#FFFFFF", 
+                            "grid": false
                         }
                     },
                     "y": {
                         "field": "value",
                         "type": "quantitative",
                         "axis": {
-                            "title": "Value (millions USD)",
-                            "titleColor": "#FFFFFF", 
-                            "labelColor": "#FFFFFF" 
+                            "title": "",
+                            "labelColor": "#FFFFFF", 
+                            "gridColor": "#333333" 
                         }
-                    },
-                    "color": {
-                        "field": "category",
-                        "type": "nominal",
-                        "scale": {
-                            "domain": ["Exports", "Imports", "Trade Balance"],
-                            "range": ["#4c78a8", "#f58518", "#e45756"]
-                        }
-                    },
-                    "tooltip": [
-                        {"field": "category", "type": "nominal"},
-                        {"field": "value", "type": "quantitative", "format": ",.2f"}
-                    ]
+                    }
                 },
                 "config": {
-                    "axis": {
-                        "grid": false
-                    },
                     "view": {
-                        "stroke": null
-                    }
+                        "stroke": null,  // removes the border
+                        "center": true   // centers the view
+        }
                 }
             };
 
             const spec4 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "UK Monthly GDP Growth",
-                "width": 600,
-                "height": 400,
+                "title": {
+                    "text": "UK Inflation",
+                    "anchor": "start",
+                    "subtitle": "All items, % | Source: ONS through ECO API",
+                    "fontSize": 14,
+                    "subtitleFontSize": 12,
+                    "subtitleFontStyle": "italic",
+                    "color": "#FFFFFF",  
+                    "subtitleColor": "#FFFFFF"  
+                },
+                "height": 600,
+                "width": 800,
+                "autosize": {"type": "fit", "contains": "padding", "resize": false},
+                "background": "#1C1F24", 
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0}, 
                 "data": {
-                    "values": [
-                        {"date": "2023-01", "gdp": 100.0},
-                        {"date": "2023-02", "gdp": 100.2},
-                        {"date": "2023-03", "gdp": 100.4},
-                        {"date": "2023-04", "gdp": 100.6},
-                        {"date": "2023-05", "gdp": 100.5},
-                        {"date": "2023-06", "gdp": 101.0}
-                    ]
+                    "url": "https://api.economicsobservatory.com/gbr/infl?vega",
+                    "format": {"type": "json"}
                 },
-                "mark": {
-                    "type": "line",
-                    "point": true,
-                    "color": "#4c78a8"
-                },
+                "mark": {"type": "line", "color": "#f4134d", "strokeWidth": 2}, 
                 "encoding": {
                     "x": {
                         "field": "date",
                         "type": "temporal",
                         "axis": {
-                            "title": "Month",
-                            "labelAngle": 45,
-                            "labelColor": "#FFFFFF",
-                            "titleColor": "#FFFFFF"
+                            "title": "",
+                            "labelColor": "#FFFFFF", 
+                            "grid": false
                         }
                     },
                     "y": {
-                        "field": "gdp",
+                        "field": "value",
                         "type": "quantitative",
                         "axis": {
-                            "title": "GDP Index (Jan 2023 = 100)",
-                            "labelColor": "#FFFFFF",
-                            "titleColor": "#FFFFFF"
+                            "title": "",
+                            "labelColor": "#FFFFFF", 
+                            "gridColor": "#333333" 
                         }
-                    },
-                    "tooltip": [
-                        {"field": "date", "type": "temporal", "title": "Month"},
-                        {"field": "gdp", "type": "quantitative", "title": "GDP Index"}
-                    ]
+                    }
                 },
-                "config": {
-                    "background": "#1C1F24",
-                    "view": {
-                        "stroke": "transparent"
+                "config": {}
+            }
+
+            const spec5 = {
+               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "data": {
+                    "url": "https://raw.githubusercontent.com/MW17668/MW17668.github.io/main/myDataJuly1.csv"
+                },
+                "mark": "bar",
+                "width": 800,
+                "height": 600,
+                "background": "#1C1F24", 
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+                "title": {
+                    "text": "Food - CO2 greenhouse gas emissions",
+                    "subtitle": "Kg of CO2 emitted per kg of food | Source: Our World in Data",
+                    "subtitleFontSize": 10,
+                    "subtitleFontStyle": "italic",
+                    "anchor": "start",
+                    "color": "white",
+                    "subtitleColor": "white" 
+                },
+                "encoding": {
+                    "y": {"field": "Entity", "sort": "-x", "type": "ordinal", "title": null, "axis": {"labelColor": "#FFFFFF", 
+                            "gridColor": "#333333"}},
+                    "x": {"field": "food_emissions", "title": null, "type": "quantitative", "axis": {"labelColor": "#FFFFFF", 
+                        "grid": false}},
+                    "color": {
+                    "field": "Type",
+                    "type": "nominal",
+                    "legend": {"orient": "bottom-right"},
+                    "scale": {
+                        "domain": [
+                        "Land Use",
+                        "Farm",
+                        "Animal Feed",
+                        "Processing",
+                        "Transport",
+                        "Retail",
+                        "Packaging"
+                        ],
+                        "scheme": "yellowgreenblue"
+                    },
+                    "title": "Emissions from:"
                     }
                 }
             };
 
+            const spec6 = {
+               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "Multi-series Line Chart with Halo. Use pivot and repeat-layer as a workaround to facet groups of lines and their halo strokes. See https://github.com/vega/vega-lite/issues/6192 for more discussion.",
+                "data": {"url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/energy_uk"},
+                "width": 800,
+                "height": 600,
+                "background": "#1C1F24", 
+                "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+                "transform": [{
+                    "pivot": "symbol",
+                    "value": "TWh",
+                    "groupby": ["year"]
+                }],
+                "repeat": {
+                    "layer": ["Electricity from fossil fuels (TWh)", "Electricity from nuclear (TWh)", "Electricity from renewables (TWh)"]
+                },
+                "spec": {
+                    "layer": [{
+                    "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
+                    "encoding": {
+                        "x": {"field": "year", "type": "temporal"},
+                        "y": {"field": {"repeat": "layer"}, "type": "quantitative", "title": "TWh"}
+                    }
+                    },{
+                    "mark": {"type": "line"},
+                    "encoding": {
+                        "x": {"field": "year", "type": "temporal", "labelColor": "white"},
+                        "y": {"field": {"repeat": "layer"}, "type": "quantitative", "title": "priTWhce", "labelColor": "white"},
+                        "stroke": {"datum": {"repeat": "layer"}, "type": "nominal"}
+                    }
+                    }]
+                }
+            };
+
+            const spec7 = {
+               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                
+            };
         
             vegaEmbed('#vis1', spec1).then(function(result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -337,8 +419,22 @@
             vegaEmbed('#vis4', spec4).then(function(result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
+            vegaEmbed('#vis5', spec5).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis6', spec6).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis7', spec6).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis7', spec7).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+            vegaEmbed('#vis7', spec8).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
             src="app.js"
         </script>
-
     </body>
   </html>
