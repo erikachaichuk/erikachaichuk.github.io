@@ -33,10 +33,10 @@
                         <a href="./port.html" class="navbar__links">Portfolio</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="/" class="navbar__links">Project</a>
+                        <a href="./project.html" class="navbar__links">Project</a>
                     </li>
                     <li class="navbar__btn">
-                        <a href="/" class="button">About</a>
+                        <a href="./about.html" class="button">About</a>
                     </li>
                 </ul>
             </div>
@@ -59,41 +59,78 @@
         <!-- First charts section -->
         <div class="charts__container">
             <div class="charts__content">
-                <h1>Challenge 1</h1>
+                <h1>Challenge 1: Hosting data</h1>
                 <p></p>
-                <div id="vis1"></div>
+                <div id="vis1" class = "chart-container"></div>
                 <p></p>
-                <div id="vis2"></div>
+                <div id="vis2" class = "chart-container"></div>
              </div>
         </div>
         <!-- Second charts section-->
         <div class="charts__container">
             <div class="charts__content">
-                <h1>Challenge 2</h1>
+                <h1>Challenge 2: Visualisation</h1>
                 <p></p>
-                <div id="vis3"></div>
+                <div id="vis3" class = "chart-container"></div>
                 <p></p>
-                <div id="vis4"></div>
+                <div id="vis4" class = "chart-container"></div>
              </div>
         </div>
         <!-- Third charts section-->
         <div class="charts__container">
             <div class="charts__content">
-                <h1>Challenge 3</h1>
-                <p>This section is dedicated to discussing the topic "How Can We Build a Sustainable Planet" adressed at the Economic Observatory Conference.</p>
-                <div id="vis5"></div>
+                <h1>Challenge 3: Debating using visualisation</h1>
                 <p></p>
-                <div id="vis6"></div>
+                <div id="vis5" class = "chart-container"></div>
+                <p></p>
+                <div id="vis6" class = "chart-container"></div>
              </div>
         </div>
-         <!-- Third charts section-->
+         <!-- Fourth charts section-->
          <div class="charts__container">
             <div class="charts__content">
-                <h1>Challenge 6</h1>
+                <h1>Challenge 4: Replication</h1>
+                <div class="main_img--container"></div>
+                    <img src="https://cdn.prod.website-files.com/61488f4f65be16b5ebbd450b/65ccf42ff14d759a662a3e08_y_TEk3yWkP9Apz7Hf9FRaDqI6hqfyD4v_K-aRN3o77JGak8aItVxoAxmP0J7AOcse9AiaN_2hwrSi4aMzDQ7dXZG4PhrcyRK6I2ug1FU7HA4nheE2eMBauy8BmukXsg7_q8seGxb.webp" alt="" id="main__img">
+                </div>
+                <div id="vis7" class = "chart-container"></div>
+                <div id="vis8" class = "chart-container"></div>
+             </div>
+        </div>
+        <!-- Fifth charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 5: Scrapping data</h1>
                 <p></p>
-                <div id="vis7"></div>
+                <div id="vis9" class = "chart-container"></div>
+             </div>
+        </div>
+        <!-- Sixth charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 6: Loops</h1>
                 <p></p>
-                <div id="vis8"></div>
+                <div id="vis10" class = "chart-container"></div>
+             </div>
+        </div>
+        <!-- Seventh charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 7: Maps</h1>
+                <p></p>
+                <div id="vis19" class = "chart-container"></div>
+                <p></p>
+                <div id="vis20" class = "chart-container"></div>
+             </div>
+        </div>
+        <!-- Eighth charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 8: Analytics charts</h1>
+                <p></p>
+                <div id="vis21" class = "chart-container"></div>
+                <p></p>
+                <div id="vis22" class = "chart-container"></div>
              </div>
         </div>
 
@@ -107,7 +144,6 @@
                         </a>
                     </h1>
                     <p style="margin-top: 0px; color: #ff8177">
-                        <!-- we're setting the margin to 0px so the header and authour name are close together -->
                         Erika Chaichuk | <a href="https://www.linkedin.com/in/erika-chaichuk-21982b251/" style="color:#ff8177">LinkedIn</a> | <a
                             href="https://www.github.com/erikachaichuk" style="color:#ff8177">GitHub</a>
                     </p>
@@ -131,8 +167,8 @@
                 "data": {
                     "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/chartENV11.csv"
                 },
-                "height": 600,
-                "width": 800,
+                "height": 500,
+                "width": 700,
                 "background": "#1C1F24", 
                 "view": {"fill": "#1C1F24", "strokeOpacity": 0},
                 "mark": {"type": "line",
@@ -157,7 +193,7 @@
                     "color": {
                         "field": "Country",
                         "title": null,
-                        "legend": {"orient": "bottom-right"},
+                        "legend": {"symbolOpacity": 1, "orient": "bottom", "direction": "horizontal", "columns": 7, "labelColor": "white"},
                         "type": "nominal",
                         "sort": [],
                         "scale": {"scheme": "yellowgreenblue"}
@@ -175,11 +211,17 @@
                 },
                 "config": {
                     "view": {
-                    "stroke": null,  // removes the border
-                    "center": true   // centers the view
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
                     }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
                  }
-
             };
 
             const spec2 = {
@@ -197,8 +239,8 @@
                 "data": {
                     "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/GI4.DataHub.GrowthInnovationOutputperHour.csv"
                 },
-                "height": 600,
-                "width": 800,
+                "height": 500,
+                "width": 700,
                 "background": "#1C1F24", 
                 "view": {"fill": "#1C1F24", "strokeOpacity": 0},
                 "mark": {
@@ -225,7 +267,20 @@
                         "title": null,
                         "axis": {"gridColor": "#333333", "labelColor": "white"}
                     }
-                }
+                },
+                "config": {
+                    "view": {
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
+                    }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                 }
             };
 
             const spec3 = {
@@ -240,8 +295,8 @@
                     "color": "#FFFFFF",  
                     "subtitleColor": "#FFFFFF"  
                 },
-                "height": 600,
-                "width": 800,
+                "height": 500,
+                "width": 700,
                 "autosize": {"type": "fit", "contains": "padding", "resize": false},
                 "background": "#1C1F24", 
                 "view": {"fill": "#1C1F24", "strokeOpacity": 0}, 
@@ -272,10 +327,17 @@
                 },
                 "config": {
                     "view": {
-                        "stroke": null,  // removes the border
-                        "center": true   // centers the view
-        }
-                }
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
+                    }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                 }
             };
 
             const spec4 = {
@@ -290,8 +352,8 @@
                     "color": "#FFFFFF",  
                     "subtitleColor": "#FFFFFF"  
                 },
-                "height": 600,
-                "width": 800,
+                "height": 500,
+                "width": 700,
                 "autosize": {"type": "fit", "contains": "padding", "resize": false},
                 "background": "#1C1F24", 
                 "view": {"fill": "#1C1F24", "strokeOpacity": 0}, 
@@ -320,7 +382,19 @@
                         }
                     }
                 },
-                "config": {}
+                "config": {
+                    "view": {
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
+                    }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                }
             }
 
             const spec5 = {
@@ -329,14 +403,14 @@
                     "url": "https://raw.githubusercontent.com/MW17668/MW17668.github.io/main/myDataJuly1.csv"
                 },
                 "mark": "bar",
-                "width": 800,
-                "height": 600,
+                "width": 700,
+                "height": 500,
                 "background": "#1C1F24", 
                 "view": {"fill": "#1C1F24", "strokeOpacity": 0},
                 "title": {
                     "text": "Food - CO2 greenhouse gas emissions",
-                    "subtitle": "Kg of CO2 emitted per kg of food | Source: Our World in Data",
-                    "subtitleFontSize": 10,
+                    "subtitle": "Kg of CO2 per 1 kg of food | Source: Our World in Data",
+                    "subtitleFontSize": 12,
                     "subtitleFontStyle": "italic",
                     "anchor": "start",
                     "color": "white",
@@ -350,7 +424,7 @@
                     "color": {
                     "field": "Type",
                     "type": "nominal",
-                    "legend": {"orient": "bottom-right"},
+                    "legend": {"symbolOpacity": 1, "orient": "bottom", "direction": "horizontal", "columns": 7, "labelColor": "white"},
                     "scale": {
                         "domain": [
                         "Land Use",
@@ -363,76 +437,467 @@
                         ],
                         "scheme": "yellowgreenblue"
                     },
-                    "title": "Emissions from:"
+                    "title": "Emissions from:",
+                    "titleColor": "white"
                     }
-                }
+                },
+                "config": {
+                    "view": {
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
+                    }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                 }
             };
 
             const spec6 = {
-               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "Multi-series Line Chart with Halo. Use pivot and repeat-layer as a workaround to facet groups of lines and their halo strokes. See https://github.com/vega/vega-lite/issues/6192 for more discussion.",
-                "data": {"url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/energy_uk"},
-                "width": 800,
-                "height": 600,
-                "background": "#1C1F24", 
-                "view": {"fill": "#1C1F24", "strokeOpacity": 0},
-                "transform": [{
-                    "pivot": "symbol",
-                    "value": "TWh",
-                    "groupby": ["year"]
-                }],
-                "repeat": {
-                    "layer": ["Electricity from fossil fuels (TWh)", "Electricity from nuclear (TWh)", "Electricity from renewables (TWh)"]
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "data": {
+                    "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/chartENV10.csv"
                 },
-                "spec": {
-                    "layer": [{
-                    "mark": {"type": "line", "stroke": "white", "strokeWidth": 4},
-                    "encoding": {
-                        "x": {"field": "year", "type": "temporal"},
-                        "y": {"field": {"repeat": "layer"}, "type": "quantitative", "title": "TWh"}
+                "mark": "bar",
+                "width": 700,
+                "height": 500,
+                "background": "#1C1F24",
+                "title": {
+                    "text": "CO2 emissions by sector, United Kingdom",
+                    "subtitle": "Millon tonnes | Source: Gov.uk (BEIS)",
+                    "subtitleFontStyle": "italic",
+                    "subtitleColor": "white",
+                    "subtitleFontSize": 12,
+                    "anchor": "start",
+                    "color": "white"
+                },
+                "config": {
+                    "view": {
+                    "cornerRadius": 10,
+                    "stroke": "transparent",
+                    "padding": "config.view",
+                    "center": true
                     }
-                    },{
-                    "mark": {"type": "line"},
-                    "encoding": {
-                        "x": {"field": "year", "type": "temporal", "labelColor": "white"},
-                        "y": {"field": {"repeat": "layer"}, "type": "quantitative", "title": "priTWhce", "labelColor": "white"},
-                        "stroke": {"datum": {"repeat": "layer"}, "type": "nominal"}
+                },
+                "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                },
+                "transform": [
+                    {"filter": {"selection": "SectorSelector"}},
+                    {
+                    "filter": {
+                        "field": "Sector",
+                        "oneOf": [
+                        "Agriculture",
+                        "Business",
+                        "Energy Supply",
+                        "Residential",
+                        "Transport",
+                        "Waste management"
+                        ]
                     }
-                    }]
+                    }
+                ],
+                "selection": {
+                    "SectorSelector": {
+                    "type": "single",
+                    "fields": ["Sector"],
+                    "bind": {
+                        "input": "select",
+                        "options": [
+                        null,
+                        "Agriculture",
+                        "Business",
+                        "Energy Supply",
+                        "Residential",
+                        "Transport",
+                        "Waste management"
+                        ],
+                        "name": "Choose sector"
+                    }
+                    }
+                },
+                "encoding": {
+                    "x": {
+                    "field": "Year",
+                    "type": "temporal",
+                    "title": null,
+                    "axis": {"grid": false, "labelColor": "#FFFFFF"}
+                    },
+                    "y": {
+                    "field": "Value",
+                    "title": null,
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 900]},
+                    "axis": {"grid": false, "labelColor": "#FFFFFF"}
+                    },
+                    "color": {
+                    "field": "Sector",
+                    "type": "nominal",
+                    "legend": {"symbolOpacity": 1, "orient": "bottom", "direction": "horizontal", "columns": 6, "labelColor": "white"},
+                    "scale": {"scheme": "category20"},
+                    "title": null
+                    },
+                    "tooltip": [
+                    {"field": "Sector"},
+                    {
+                        "field": "Year",
+                        "type": "temporal",
+                        "timeUnit": "year",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "CO2 Emissions (millon tonnes)"
+                    },
+                    {
+                        "field": "Value_2",
+                        "type": "quantitative",
+                        "title": "Share of annual total(%)",
+                        "format": ".3"
+                    }
+                    ]
+                }
+            };
+           
+            const spec7 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "A simple pie chart with embedded data.",
+                "data": {
+                    "values": [
+                    {"Country": "Other", "value": 31.5},
+                    {"Country": "Japan", "value": 3.5},
+                    {"Country": "Russia", "value": 4.9},
+                    {"Country": "India", "value": 6.8},
+                    {"Country": "EEA", "value": 9.8},
+                    {"Country": "U.S.", "value": 14.3},
+                    {"Country": "China", "value":29.4}
+                    ]
+                },
+                "mark": "arc",
+                "width": 700,
+                "height": 500,
+                "encoding": {
+                    "theta": {"field": "value", "type": "quantitative"},
+                    "color": {"field": "Country", "type": "nominal"}
                 }
             };
 
-            const spec7 = {
-               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            const spec8 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "A simple bar chart with embedded data.",
+                "title": "Countries with largest CO2 emissions",
+                "data": {
+                    "values": [
+                    {"Country": "China", "percent": 29.4}, 
+                    {"Country": "US", "percent": 14.3}, 
+                    {"Country": "EEA", "percent": 9.8},
+                    {"Country": "India", "percent": 6.8}, 
+                    {"Country": "Russia", "percent": 4.9},
+                    {"Country": "Japan", "percent": 3.5},
+                    {"Country": "Other", "percent": 31.5}
+                    ]
+                },
+                "width": 700,
+                "height": 500,
+                "mark": "bar",
+                "encoding": {
+                    "x": {"field": "Country", "type": "nominal", "axis": {"labelAngle": 0}},
+                    "y": {"field": "percent", "type": "quantitative"},
+                    "color": {
+                    "condition": {
+                        "test" : "datum.Country == 'China'",
+                        "value": "red"
+                    },
+                    "value": "grey"
+                    }
+                },
+                "config": {
+                    "view": {
+                    "cornerRadius": 10,
+                    "stroke": "transperent",
+                    "padding": "config.view",
+                    "stroke": null, 
+                    "center": true  
+                    }
+                 },
+                 "autosize": {
+                    "type": "fit",
+                    "contains": "padding"
+                 }
+            };
+
+            const spec9 = {
                 
             };
-        
+
+            const spec10 = {
+
+            };
+
+            const spec19 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "data": {
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/us.json",
+                    "format": {"type": "topojson", "feature": "wards"}
+                },
+                "projection": {"type": "mercator"},
+                "mark": {"type": "geoshape"},
+                "width": 700,
+                "height": 500,
+                "encoding" : {"tooltip": [{"field": "properties.name", "type": "nominal", "title": "State"}]}
+            };
+
+            const spec20 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "width": 700,
+                "height": 500,
+                "layer": [
+                    {
+                    "data": {
+                        "url": "us.json",
+                        "format": {"type": "topojson", "feature": "name"}
+                    },
+                    "transform": [{
+                        "lookup": "",
+                        "from": {
+                            "data": {
+                                "url": "------"
+                            },
+                            "key": "-------",
+                            "fields": ["value"]
+                            }
+                    }],
+                    "projection": {"type": "mercator"},
+                    "mark": {"type": "geoshape"},
+                    "encoding": {
+                        "color": {
+                        "field": "rate",
+                        "type": "quantitative",
+                        "title": "Value",
+                        "scale": {
+                            "scheme": "blues"
+                        }
+                        },
+                        "tooltip": [
+                        {"field": "name", "type": "nominal", "title": "State"},
+                        {"field": "rate", "type": "quantitative", "title": "Value"}
+                        ]
+                    }
+                    },
+                    {
+                    "data": {
+                        "url": "airports.csv"  
+                    },
+                    "projection": {"type": "mercator"},
+                    "mark": {
+                        "type": "circle",
+                        "color": "red",
+                        "size": 30,
+                        "opacity": 0.6
+                    },
+                    "encoding": {
+                        "longitude": {"field": "longitude", "type": "quantitative"},
+                        "latitude": {"field": "latitude", "type": "quantitative"},
+                        "tooltip": [
+                        {"field": "name", "type": "nominal", "title": "Airport"},
+                        {"field": "code", "type": "nominal", "title": "Code"}
+                        ]
+                    }
+                    }
+                ]
+
+            };
+
+            const spec21 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "Advanced chart: univariate regression",
+                "title": {
+                    "text": "Median House Price Correlation with State Education Funding",
+                    "subtitle": "Source: US Education Data Initiative",
+                    "subtitleFontStyle": "italic",
+                    "subtitleFontSize": 10,
+                    "anchor": "start",
+                    "color": "white",
+                    "subtitleColor": "white"
+                },
+                "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
+                "data": {
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/house_educ.csv"
+                },
+                "transform": [
+                    {"calculate": "datum.MHP/1000", "as": "MHP"},
+                    {"calculate": "datum.Funding/1000", "as": "Funding"}
+                ],
+                "width": 700,
+                "height": 500,
+                "layer": [
+                    {
+                    "mark": {"type": "point", "filled": true},
+                    "encoding": {
+                        "x": {
+                            "field": "MHP",
+                            "type": "quantitative",
+                            "scale": {"domain": [100, 650]},
+                            "title": "Median House Price ($000)",
+                            "axis": {
+                                "grid": false,
+                                "labelColor": "white",
+                                "tickColor": "white",
+                                "domainColor": "white"
+                        }
+                        },
+                        "y": {
+                            "field": "Funding",
+                            "type": "quantitative",
+                            "scale": {"domain": [0, 30]},
+                            "title": "State & Local Funding ($000)",
+                            "axis": {
+                                "grid": false,
+                                "labelColor": "white",
+                                "tickColor": "white",
+                                "domainColor": "white"
+                        }
+                        },
+                        "color": {
+                            "field": "State",
+                            "type": "nominal",
+                            "legend": null,
+                            "scale": {"scheme": "reds", "reverse": true}
+                        },
+                        "tooltip": {"field": "State", "type": "ordinal"}
+                    }
+                    },
+                    {
+                    "mark": {"type": "line", "color": "red"},
+                    "transform": [{"regression": "MHP", "on": "Funding"}],
+                    "encoding": {
+                        "x": {"field": "MHP", "type": "quantitative"},
+                        "y": {"field": "Funding", "type": "quantitative"},
+                        "color": {
+                            "field": "State",
+                            "type": "nominal",
+                            "legend": null,
+                            "scale": {"scheme": "redpurple", "reverse": true}
+                        },
+                        "tooltip": {"field": "State", "type": "ordinal"}
+                    }
+                    },
+                    {
+                    "transform": [
+                        {"regression": "MHP", "on": "Funding", "params": true},
+                        {"calculate": "'R²: '+format(datum.rSquared, '.2f')", "as": "R2"}
+                    ],
+                    "mark": {
+                        "type": "text",
+                        "color": "white",
+                        "x": "width",
+                        "align": "right",
+                        "y": -10
+                    },
+                    "encoding": {"text": {"type": "nominal", "field": "R2"}}
+                    }
+                ]
+            };
+
+            const spec22 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "Advanced chart: bubble",
+                "title": {
+                    "text": "US Same-Sex Couple Households (percentage)",
+                    "subtitle": "Source: US Census Bureau",
+                    "subtitleFontStyle": "italic",
+                    "subtitleFontSize": 10,
+                    "anchor": "start",
+                    "color": "#white",
+                    "subtitleColor": "white"
+                },
+                "config": {
+                    "background": "#1C1F24",
+                    "view": {"stroke": "transparent"}
+                },
+                "data": {
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/same-sex.csv"
+                },
+                "width": 700,
+                "height": 500,
+                "mark": {
+                    "type": "circle",
+                    "opacity": 0.8,
+                    "stroke": "white",
+                    "strokeWidth": 0.8
+                },
+                "encoding": {
+                    "x": {"field": "Year", "type": "temporal", "axis": {"grid": false, "labelColor": "white"}},
+                    "y": {"field": "State", "type": "nominal", "axis": {"title": "", "labelColor": "white"}},
+                    "size": {
+                    "field": "Percentage",
+                    "type": "quantitative",
+                    "title": "",
+                    "legend": {"clipHeight": 30, "padding": 10, "labelColor": "white"},
+                    "scale": {"rangeMax": 2500}
+                    },
+                    "color": {
+                    "field": "State",
+                    "type": "nominal",
+                    "legend": null,
+                    "scale": {"scheme": "blues"}
+                    },
+                    "tooltip": {"field": "Percentage", "type": "nominal"}
+                }
+            }
+
             vegaEmbed('#vis1', spec1).then(function(result) {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
             vegaEmbed('#vis2', spec2).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
             vegaEmbed('#vis3', spec3).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
             vegaEmbed('#vis4', spec4).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
             vegaEmbed('#vis5', spec5).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
             vegaEmbed('#vis6', spec6).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            }).catch(console.error);
-            vegaEmbed('#vis7', spec6).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
             vegaEmbed('#vis7', spec7).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                
             }).catch(console.error);
-            vegaEmbed('#vis7', spec8).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            vegaEmbed('#vis8', spec8).then(function(result) {
+               
+            }).catch(console.error);
+            vegaEmbed('#vis9', spec9).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis19', spec19).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis20', spec20).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis21', spec21).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis22', spec22).then(function(result) {
+                
+            }).catch(console.error);
+
+            vegaEmbed('#vis23', spec23).then(function(result) {
+                
+            }).catch(console.error);
+
+            vegaEmbed('#vis24', spec24).then(function(result) {
+                
             }).catch(console.error);
             src="app.js"
         </script>
