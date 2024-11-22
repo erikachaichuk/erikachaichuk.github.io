@@ -91,7 +91,6 @@
             <div class="charts__content">
                 <h1>Challenge 4: Replication</h1>
                 <div class="main_img--container"></div>
-                    <img src="https://cdn.prod.website-files.com/61488f4f65be16b5ebbd450b/65ccf42ff14d759a662a3e08_y_TEk3yWkP9Apz7Hf9FRaDqI6hqfyD4v_K-aRN3o77JGak8aItVxoAxmP0J7AOcse9AiaN_2hwrSi4aMzDQ7dXZG4PhrcyRK6I2ug1FU7HA4nheE2eMBauy8BmukXsg7_q8seGxb.webp" alt="" id="main__img">
                 </div>
                 <div id="vis7" class = "chart-container"></div>
                 <div id="vis8" class = "chart-container"></div>
@@ -133,6 +132,27 @@
                 <div id="vis22" class = "chart-container"></div>
              </div>
         </div>
+        <!--Tenth charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 9: Big data</h1>
+                <p></p>
+                <div id="vis23" class = "chart-container"></div>
+                <p></p>
+                <div id="vis24" class = "chart-container"></div>
+             </div>
+        </div>
+        <!--Tenth charts section-->
+        <div class="charts__container">
+            <div class="charts__content">
+                <h1>Challenge 10: Innteractive charts</h1>
+                <p></p>
+                <div id="vis25" class = "chart-container"></div>
+                <p></p>
+                <div id="vis26" class = "chart-container"></div>
+             </div>
+        </div>
+        
 
          <!-- social media section -->
          <div class="social_media__container">
@@ -385,7 +405,6 @@
                 "config": {
                     "view": {
                     "cornerRadius": 10,
-                    "stroke": "transperent",
                     "padding": "config.view",
                     "stroke": null, 
                     "center": true  
@@ -567,77 +586,121 @@
            
             const spec7 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "A simple pie chart with embedded data.",
+                "description": "Recreated Economist graph.",
+                "width": 500,
+                "height": 250,
+                "background": "#e6f3ff",
                 "data": {
                     "values": [
-                    {"Country": "Other", "value": 31.5},
-                    {"Country": "Japan", "value": 3.5},
-                    {"Country": "Russia", "value": 4.9},
-                    {"Country": "India", "value": 6.8},
-                    {"Country": "EEA", "value": 9.8},
-                    {"Country": "U.S.", "value": 14.3},
-                    {"Country": "China", "value":29.4}
+                    {"name": "Jeremy Corbyn", "likes": 5210},
+                    {"name": "Labour Party", "likes": 750},
+                    {"name": "Momentum", "likes": 200},
+                    {"name": "Owen Smith", "likes": 100},
+                    {"name": "Andy Burnham", "likes": 100},
+                    {"name": "Saving Labour", "likes": 50}
                     ]
                 },
-                "mark": "arc",
-                "width": 700,
-                "height": 500,
+                "mark": {
+                    "type": "bar",
+                    "color": "#8B4513"
+                },
                 "encoding": {
-                    "theta": {"field": "value", "type": "quantitative"},
-                    "color": {"field": "Country", "type": "nominal"}
+                    "y": {
+                    "field": "name",
+                    "type": "nominal",
+                    "title": null,
+                    "sort": "-x"
+                    },
+                    "x": {
+                    "field": "likes",
+                    "type": "quantitative",
+                    "title": "",
+                    "axis": {
+                        "grid": true,
+                        "gridColor": "#ffffff"
+                    }
+                    }
+                },
+                "config": {
+                    "view": {"stroke": null},
+                    "axis": {
+                    "labelFont": "Arial",
+                    "titleFont": "Arial"
+                    },
+                    "title": {
+                    "font": "Arial",
+                    "fontSize": 14
+                    }
+                },
+                "title": {
+                    "text": "Left-click",
+                    "subtitle": "Average number of likes per Facebook post\n2016",
+                    "align": "left",
+                    "anchor": "start",
+                    "offset": 20
                 }
             };
 
             const spec8 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "description": "A simple bar chart with embedded data.",
-                "title": "Countries with largest CO2 emissions",
+                "description": "Chnaged Economist chart.",
+                "width": 500,
+                "height": 250,
+                "background": "#e6f3ff",
                 "data": {
                     "values": [
-                    {"Country": "China", "percent": 29.4}, 
-                    {"Country": "US", "percent": 14.3}, 
-                    {"Country": "EEA", "percent": 9.8},
-                    {"Country": "India", "percent": 6.8}, 
-                    {"Country": "Russia", "percent": 4.9},
-                    {"Country": "Japan", "percent": 3.5},
-                    {"Country": "Other", "percent": 31.5}
+                    {"name": "Jeremy Corbyn", "likes": 5.21},
+                    {"name": "Labour Party", "likes": 0.75},
+                    {"name": "Momentum", "likes": 0.2},
+                    {"name": "Owen Smith", "likes": 0.1},
+                    {"name": "Andy Burnham", "likes": 0.1},
+                    {"name": "Saving Labour", "likes": 0.05}
                     ]
                 },
-                "width": 700,
-                "height": 500,
-                "mark": "bar",
+                "mark": {
+                    "type": "bar",
+                    "color": "#1f77b4"
+                },
                 "encoding": {
-                    "x": {"field": "Country", "type": "nominal", "axis": {"labelAngle": 0}},
-                    "y": {"field": "percent", "type": "quantitative"},
-                    "color": {
-                    "condition": {
-                        "test" : "datum.Country == 'China'",
-                        "value": "red"
+                    "y": {
+                    "field": "name",
+                    "type": "nominal",
+                    "title": null,
+                    "sort": "-x",
+                    "axis": {
+                        "labelFont": "Arial",
+                        "labelFontStyle": {"Labour Party": "italic", "Momentum": "italic", "Saving Labour": "italic"}
+                    }
                     },
-                    "value": "grey"
+                    "x": {
+                    "field": "likes",
+                    "type": "quantitative",
+                    "title": "Average number of likes per Facebook post\n2016, '000",
+                    "axis": {
+                        "grid": true,
+                        "gridColor": "#ffffff",
+                        "values": [0, 1, 2, 3, 4, 5, 6]
+                    }
                     }
                 },
                 "config": {
-                    "view": {
-                    "cornerRadius": 10,
-                    "stroke": "transperent",
-                    "padding": "config.view",
-                    "stroke": null, 
-                    "center": true  
+                    "view": {"stroke": null},
+                    "axis": {
+                    "labelFont": "Arial",
+                    "titleFont": "Arial"
+                    },
+                    "title": {
+                    "font": "Arial",
+                    "fontSize": 14
                     }
-                 },
-                 "autosize": {
-                    "type": "fit",
-                    "contains": "padding"
-                 }
-            };
-
-            const spec9 = {
-                
-            };
-
-            const spec10 = {
-
+                },
+                "title": {
+                    "text": "Left-click",
+                    "subtitle": "Average number of likes per Facebook post\n2016, '000",
+                    "align": "left",
+                    "anchor": "start",
+                    "offset": 20
+                }
             };
 
             const spec19 = {
@@ -728,7 +791,7 @@
                 },
                 "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
                 "data": {
-                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/house_educ.csv"
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/house_educ.csv"
                 },
                 "transform": [
                     {"calculate": "datum.MHP/1000", "as": "MHP"},
@@ -822,7 +885,7 @@
                     "view": {"stroke": "transparent"}
                 },
                 "data": {
-                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/same-sex.csv"
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/same-sex.csv"
                 },
                 "width": 700,
                 "height": 500,
@@ -850,6 +913,22 @@
                     },
                     "tooltip": {"field": "Percentage", "type": "nominal"}
                 }
+            };
+
+            const spec23 = {
+
+            };
+
+            const spec24 = {
+
+            };
+
+            const spec25 = {
+
+            };
+
+            const spec26 = {
+
             }
 
             vegaEmbed('#vis1', spec1).then(function(result) {
@@ -895,7 +974,6 @@
             vegaEmbed('#vis23', spec23).then(function(result) {
                 
             }).catch(console.error);
-
             vegaEmbed('#vis24', spec24).then(function(result) {
                 
             }).catch(console.error);
