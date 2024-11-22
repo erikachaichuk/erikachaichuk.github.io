@@ -239,6 +239,8 @@
 }
 
 .main__content {
+    border-radius: 15px;
+    overflow: hidden;
     margin-top: 1rem;
     font-size: 2rem;
     font-weight: 700;
@@ -297,6 +299,7 @@
 
 /*charts section*/
 .charts__container {
+    overflow: hidden;
     background-color: #141414;
     padding: 5rem 0;
     display: flex;
@@ -306,15 +309,47 @@
 }
 
 .charts__content {
+    border-radius: 15px;
+    overflow: hidden;
     margin-top: 1rem;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 700;
     color:#f77062;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.vega-embed.has-actions {
+    padding-right: 0px;
+    width: 100%;
+    height: 100%;
+    }
+
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    border: 2px solid #333; 
+    pointer-events: none;
+    z-index: 1;
 }
 
 /*about sectioin*/
 .about__container {
     background-color: #141414;
+    color:#fff;
     padding: 5rem 0;
     display: flex;
     flex-direction: column;
@@ -322,11 +357,13 @@
     align-items: center;
 }
 
-.charts__content {
+.about__content {
     margin-top: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color:#f77062;
+    color:#FFFFFF;
+    justify-content: center;
+    align-items: center
 }
 
 /*social media section css*/
