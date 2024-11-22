@@ -110,6 +110,14 @@
                 <h1>Challenge 6: Loops</h1>
                 <p></p>
                 <div id="vis10" class = "chart-container"></div>
+                <div id="vis11" class = "chart-container"></div>
+                <div id="vis12" class = "chart-container"></div>
+                <div id="vis13" class = "chart-container"></div>
+                <div id="vis14" class = "chart-container"></div>
+                <div id="vis15" class = "chart-container"></div>
+                <div id="vis16" class = "chart-container"></div>
+                <div id="vis17" class = "chart-container"></div>
+                <div id="vis18" class = "chart-container"></div>
              </div>
         </div>
         <!-- Seventh charts section-->
@@ -703,78 +711,227 @@
                 }
             };
 
+            const spec10 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "UK Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec11 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "US Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec12 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "Canada Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec13 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "China Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec14 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "France Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec15 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "Germany Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec16 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "Italy Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
+            const spec17 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "Spain Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+            const spec18 = {
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {"text": "Portugal Unemployment rate", "subtitle": ""},
+                "width": 200,
+                "height": 200,
+                "data": {
+                    "url": "https://raw.githubusercontent.com/OliverGriffiths287/OliverGriffiths287.github.io/refs/heads/main/Monthly_Imports_Ghana.json"
+                },
+                "mark": {"type": "line", "color": "red"},
+                "encoding": {
+                    "x": {"field": "date", "type": "temporal", "title": "Date"},
+                    "y": {"field": "value", "type": "quantitative", "title": "Import Value"}
+                }
+            };
+
             const spec19 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-                "data": {
-                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/us.json",
-                    "format": {"type": "topojson", "feature": "wards"}
-                },
-                "projection": {"type": "mercator"},
-                "mark": {"type": "geoshape"},
+                "title": {"text": "France by Region", "anchor": "middle", "color": "white"},
+                "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
                 "width": 700,
                 "height": 500,
-                "encoding" : {"tooltip": [{"field": "properties.name", "type": "nominal", "title": "State"}]}
+                "data": {
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france.json",
+                    "format": {"property": "features"}
+                },
+                "projection": {"type": "mercator"},
+                "transform": [
+                    {
+                    "lookup": "properties.id",
+                    "from": {
+                        "data": {
+                        "values": [
+                            {"id": "FRARA", "name": "Auvergne Rhône Alpes"},
+                            {"id": "FRBFC", "name": "Bourgogne Franche Comté"},
+                            {"id": "FRBRE", "name": "Bretagne"},
+                            {"id": "FRCVL", "name": "Centre Val de Loire"},
+                            {"id": "FR20R", "name": "Corse"},
+                            {"id": "FRGES", "name": "Grand Est"},
+                            {"id": "FRHDF", "name": "Hauts de France"},
+                            {"id": "FRIDF", "name": "Île de France"},
+                            {"id": "FRNAQ", "name": "Nouvelle Aquitaine"},
+                            {"id": "FRNOR", "name": "Normandie"},
+                            {"id": "FROCC", "name": "Occitanie"},
+                            {"id": "FRPDL", "name": "Pays de la Loire"},
+                            {"id": "FRPAC", "name": "Provence Alpes Côte d'Azur"}
+                        ]
+                        },
+                        "key": "id",
+                        "fields": ["name"]
+                    }
+                    }
+                ],
+                "mark": {
+                    "type": "geoshape",
+                    "fill": "blue",
+                    "stroke": "white",
+                    "strokeWidth": 0.5
+                },
+                "encoding": {"tooltip": {"field": "name", "type": "nominal"}}
             };
 
             const spec20 = {
                 "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {
+                    "text": "Distribution of France's population",
+                    "anchor": "middle",
+                    "color": "white"
+                },
+                "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
                 "width": 700,
                 "height": 500,
-                "layer": [
+                "data": {
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france.json",
+                    "format": {"property": "features"}
+                },
+                "projection": {"type": "mercator"},
+                "transform": [
                     {
-                    "data": {
-                        "url": "us.json",
-                        "format": {"type": "topojson", "feature": "name"}
-                    },
-                    "transform": [{
-                        "lookup": "",
-                        "from": {
-                            "data": {
-                                "url": "------"
-                            },
-                            "key": "-------",
-                            "fields": ["value"]
-                            }
-                    }],
-                    "projection": {"type": "mercator"},
-                    "mark": {"type": "geoshape"},
-                    "encoding": {
-                        "color": {
-                        "field": "rate",
-                        "type": "quantitative",
-                        "title": "Value",
-                        "scale": {
-                            "scheme": "blues"
-                        }
+                    "lookup": "properties.id",
+                    "from": {
+                        "data": {
+                        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france_gdp_by_region",
+                        "format": {"type": "csv"}
                         },
-                        "tooltip": [
-                        {"field": "name", "type": "nominal", "title": "State"},
-                        {"field": "rate", "type": "quantitative", "title": "Value"}
-                        ]
-                    }
-                    },
-                    {
-                    "data": {
-                        "url": "airports.csv"  
-                    },
-                    "projection": {"type": "mercator"},
-                    "mark": {
-                        "type": "circle",
-                        "color": "red",
-                        "size": 30,
-                        "opacity": 0.6
-                    },
-                    "encoding": {
-                        "longitude": {"field": "longitude", "type": "quantitative"},
-                        "latitude": {"field": "latitude", "type": "quantitative"},
-                        "tooltip": [
-                        {"field": "name", "type": "nominal", "title": "Airport"},
-                        {"field": "code", "type": "nominal", "title": "Code"}
-                        ]
+                        "key": "ID",
+                        "fields": ["GDP"]
                     }
                     }
-                ]
-
+                ],
+                "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+                "encoding": {
+                    "color": {
+                    "field": "GDP",
+                    "type": "quantitative",
+                    "scale": {"type": "linear", "range": ["#ffcccb", "#8b0000"]},
+                    "legend": {"title": "GDP", "labelColor": "white", "titleColor": "white"}
+                    },
+                    "tooltip": [
+                    {"field": "properties.name", "title": "Region"},
+                    {"field": "GDP", "title": "GDP", "format": ","}
+                    ]
+                }
             };
 
             const spec21 = {
@@ -956,6 +1113,33 @@
                
             }).catch(console.error);
             vegaEmbed('#vis9', spec9).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis10', spec10).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis11', spec11).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis12', spec12).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis13', spec13).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis14', spec14).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis15', spec15).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis16', spec16).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis17', spec17).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis18', spec18).then(function(result) {
                 
             }).catch(console.error);
             vegaEmbed('#vis19', spec19).then(function(result) {
