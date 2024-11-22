@@ -948,7 +948,7 @@
                 },
                 "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
                 "data": {
-                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/house_educ.csv"
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/educ_housing.csv"
                 },
                 "transform": [
                     {"calculate": "datum.MHP/1000", "as": "MHP"},
@@ -1042,7 +1042,7 @@
                     "view": {"stroke": "transparent"}
                 },
                 "data": {
-                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/data/same-sex.csv"
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/same_gender.csv"
                 },
                 "width": 700,
                 "height": 500,
@@ -1081,11 +1081,162 @@
             };
 
             const spec25 = {
-
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "title": {
+                    "text": "UK Population - since 1086",
+                    "subtitle": "Source: Bank of England",
+                    "subtitleFontStyle":"italic",
+                    "subtitleFontSize":10,
+                    "anchor": "start",
+                    "color": "black"
+                },
+                "width":700,
+                "height":500,
+                "data": {
+                    "name":"myData",
+                    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/population-of-england-millennium.csv",
+                    "format": {
+                        "type":"json",
+                        "property": "years"
+                    }
+                },
+                "mark":{
+                    "type": "line",
+                    "color":"#00BFFF",
+                    "strokeWidth":2,
+                    "opacity":1
+                },
+                "transform": [
+                    {"filter": "datum.year>minYear"},
+                    {"filter": "datum.year<maxYear"}
+                ],
+                "params": [    
+                    {"name":"minYear", "value":1800,
+                    "bind":{
+                        "input": "text",
+                        "name": "Start year:"}
+                    },
+                    {"name":"maxYear", "value":2021,
+                    "bind":{
+                        "input": "text",
+                        "name": "End year:"}
+                    }
+                ],
+                "encoding": {
+                    "x": {
+                    "field": "date",
+                    "type": "temporal",
+                    "title":null
+                    },
+                    "y": {
+                    "field": "value",                
+                    "type": "quantitative",
+                    "title":null,
+                    "scale":{
+                        "domain":{
+                        "data": "myData", 
+                        "field": "value"}}
+                    }
+                }
             };
 
             const spec26 = {
-
+                "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+                "description": "Interactive chart.",
+                "autosize": {"type": "fit-x", "contains": "padding"},
+                "background": "#1C1F24",
+                "height": 500,
+                "width": 700,
+                "padding": 0,
+                "title": {
+                    "text": "Share of Total Net Worth Held by the Top 1%",
+                    "subtitle": "Source: FRED",
+                    "subtitleFontStyle": "italic",
+                    "subtitleFontSize": 10,
+                    "anchor": "start",
+                    "color": "white",
+                    "subtitleColor": "white"
+                },
+                "data": {
+                    "name": "myData",
+                    "url": "https://api.allorigins.win/raw?url=https%3A%2F%2Fapi.stlouisfed.org%2Ffred%2Fseries%2Fobservations%3Fseries_id%3DWFRBST01134%26api_key%3Da0beba487535006b9a2f5164b9470610%26file_type%3Djson",
+                    "format": {"type": "json", "property": "observations"}
+                },
+                "mark": {
+                    "type": "area",
+                    "cursor": "pointer",
+                    "line": {"color": "#skyblue"},
+                    "color": {
+                    "x1": 1,
+                    "y1": 1,
+                    "x2": 1,
+                    "y2": 0,
+                    "gradient": "linear",
+                    "stops": [
+                        {"offset": 0, "color": "white"},
+                        {"offset": 1, "color": "skyblue"}
+                    ]
+                    }
+                },
+                "transform": [
+                    {"calculate": "year(datum.date)", "as": "year"},
+                    {"filter": "datum.year>minYear"},
+                    {"filter": "datum.year<maxYear"},
+                    {"calculate": "datum.value/100", "as": "percent"}
+                ],
+                "params": [
+                    {
+                    "name": "minYear",
+                    "value": 1989,
+                    "bind": {
+                        "input": "range",
+                        "min": 1989,
+                        "max": 2021,
+                        "step": 1,
+                        "name": "Start Year: "
+                    }
+                    },
+                    {
+                    "name": "maxYear",
+                    "value": 2021,
+                    "bind": {
+                        "input": "range",
+                        "min": 1989,
+                        "max": 2021,
+                        "step": 1,
+                        "name": "End Year: "
+                    }
+                    }
+                ],
+                "encoding": {
+                    "x": {
+                    "field": "date",
+                    "type": "temporal",
+                    "title": null,
+                    "axis": {
+                        "grid": false,
+                        "labelColor": "white",
+                        "domainColor": "white"
+                    }
+                    },
+                    "y": {
+                    "field": "percent",
+                    "type": "quantitative",
+                    "title": null,
+                    "axis": {
+                        "grid": false,
+                        "format": "%",
+                        "labelColor": "white",
+                        "tickColor": "white",
+                        "domainColor": "white"
+                    },
+                    "scale": {"domain": [0, 0.35]}
+                    },
+                    "tooltip": [
+                    {"field": "year", "type": "nominal", "title": "Year"},
+                    {"field": "value", "type": "quantitative", "title": "Percentage"}
+                    ]
+                }
             }
 
             vegaEmbed('#vis1', spec1).then(function(result) {
@@ -1159,6 +1310,12 @@
                 
             }).catch(console.error);
             vegaEmbed('#vis24', spec24).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis25', spec25).then(function(result) {
+                
+            }).catch(console.error);
+            vegaEmbed('#vis26', spec26).then(function(result) {
                 
             }).catch(console.error);
             src="app.js"
