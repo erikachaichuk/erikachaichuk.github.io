@@ -1,0 +1,92 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Advanced chart: univariate regression",
+    "title": {
+        "text": "Median House Price Correlation with State Education Funding",
+        "subtitle": "Source: US Education Data Initiative",
+        "subtitleFontStyle": "italic",
+        "subtitleFontSize": 10,
+        "anchor": "start",
+        "color": "white",
+        "subtitleColor": "white"
+    },
+    "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
+    "data": {
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/edu_housing.csv"
+    },
+    "transform": [
+        {"calculate": "datum.MHP/1000", "as": "MHP"},
+        {"calculate": "datum.Funding/1000", "as": "Funding"}
+    ],
+    "width": 700,
+    "height": 500,
+    "layer": [
+        {
+        "mark": {"type": "point", "filled": true},
+        "encoding": {
+            "x": {
+                "field": "MHP",
+                "type": "quantitative",
+                "scale": {"domain": [100, 650]},
+                "title": "Median House Price ($000)",
+                "axis": {
+                    "grid": false,
+                    "labelColor": "white",
+                    "tickColor": "white",
+                    "domainColor": "white",
+                    "titleColor": "white"
+            }
+            },
+            "y": {
+                "field": "Funding",
+                "type": "quantitative",
+                "scale": {"domain": [0, 30]},
+                "title": "State & Local Funding ($000)",
+                "axis": {
+                    "grid": false,
+                    "labelColor": "white",
+                    "tickColor": "white",
+                    "domainColor": "white",
+                    "titleColor": "white"
+            }
+            },
+            "color": {
+                "field": "State",
+                "type": "nominal",
+                "legend": null,
+                "scale": {"scheme": "reds", "reverse": true}
+            },
+            "tooltip": {"field": "State", "type": "ordinal"}
+        }
+        },
+        {
+        "mark": {"type": "line", "color": "red"},
+        "transform": [{"regression": "MHP", "on": "Funding"}],
+        "encoding": {
+            "x": {"field": "MHP", "type": "quantitative"},
+            "y": {"field": "Funding", "type": "quantitative"},
+            "color": {
+                "field": "State",
+                "type": "nominal",
+                "legend": null,
+                "scale": {"scheme": "redpurple", "reverse": true}
+            },
+            "tooltip": {"field": "State", "type": "ordinal"}
+        }
+        },
+        {
+        "transform": [
+            {"regression": "MHP", "on": "Funding", "params": true},
+            {"calculate": "'R²: '+format(datum.rSquared, '.2f')", "as": "R2"}
+        ],
+        "mark": {
+            "type": "text",
+            "color": "white",
+            "x": "width",
+            "align": "right",
+            "y": -10
+        },
+        "encoding": {"text": {"type": "nominal", "field": "R2"}}
+        }
+    ]
+}
