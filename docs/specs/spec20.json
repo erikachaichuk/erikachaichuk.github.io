@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Distribution of France's population",
+        "anchor": "middle",
+        "color": "white"
+    },
+    "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
+    "width": 700,
+    "height": 500,
+    "data": {
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france.json",
+        "format": {"property": "features"}
+    },
+    "projection": {"type": "mercator"},
+    "transform": [
+        {
+        "lookup": "properties.id",
+        "from": {
+            "data": {
+            "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france_gdp_by_region",
+            "format": {"type": "csv"}
+            },
+            "key": "ID",
+            "fields": ["GDP"]
+        }
+        }
+    ],
+    "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+    "encoding": {
+        "color": {
+        "field": "GDP",
+        "type": "quantitative",
+        "scale": {"type": "linear", "range": ["#ffcccb", "#8b0000"]},
+        "legend": {"title": "GDP", "labelColor": "white", "titleColor": "white"}
+        },
+        "tooltip": [
+        {"field": "properties.name", "title": "Region"},
+        {"field": "GDP", "title": "GDP", "format": ","}
+        ]
+    }
+}
