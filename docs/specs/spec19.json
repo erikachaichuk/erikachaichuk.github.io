@@ -1,0 +1,45 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "France by Region", "anchor": "middle", "color": "white"},
+    "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
+    "width": 700,
+    "height": 500,
+    "data": {
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/france.json",
+        "format": {"property": "features"}
+    },
+    "projection": {"type": "mercator"},
+    "transform": [
+        {
+        "lookup": "properties.id",
+        "from": {
+            "data": {
+            "values": [
+                {"id": "FRARA", "name": "Auvergne Rhône Alpes"},
+                {"id": "FRBFC", "name": "Bourgogne Franche Comté"},
+                {"id": "FRBRE", "name": "Bretagne"},
+                {"id": "FRCVL", "name": "Centre Val de Loire"},
+                {"id": "FR20R", "name": "Corse"},
+                {"id": "FRGES", "name": "Grand Est"},
+                {"id": "FRHDF", "name": "Hauts de France"},
+                {"id": "FRIDF", "name": "Île de France"},
+                {"id": "FRNAQ", "name": "Nouvelle Aquitaine"},
+                {"id": "FRNOR", "name": "Normandie"},
+                {"id": "FROCC", "name": "Occitanie"},
+                {"id": "FRPDL", "name": "Pays de la Loire"},
+                {"id": "FRPAC", "name": "Provence Alpes Côte d'Azur"}
+            ]
+            },
+            "key": "id",
+            "fields": ["name"]
+        }
+        }
+    ],
+    "mark": {
+        "type": "geoshape",
+        "fill": "blue",
+        "stroke": "white",
+        "strokeWidth": 0.5
+    },
+    "encoding": {"tooltip": {"field": "name", "type": "nominal"}}
+}
