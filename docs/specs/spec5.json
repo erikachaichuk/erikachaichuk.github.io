@@ -1,0 +1,55 @@
+ {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     "data": {
+         "url": "https://raw.githubusercontent.com/MW17668/MW17668.github.io/main/myDataJuly1.csv"
+     },
+     "mark": "bar",
+     "width": 700,
+     "height": 500,
+     "background": "#1C1F24", 
+     "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+     "title": {
+         "text": "Food - CO2 greenhouse gas emissions",
+         "subtitle": "Kg of CO2 per 1 kg of food | Source: Our World in Data",
+         "subtitleFontSize": 12,
+         "subtitleFontStyle": "italic",
+         "anchor": "start",
+         "color": "white",
+         "subtitleColor": "white" 
+     },
+     "encoding": {
+         "y": {"field": "Entity", "sort": "-x", "type": "ordinal", "title": null, "axis": {"labelColor": "#FFFFFF", 
+                 "gridColor": "#333333"}},
+         "x": {"field": "food_emissions", "title": null, "type": "quantitative", "axis": {"labelColor": "#FFFFFF", 
+             "grid": false}},
+         "color": {
+         "field": "Type",
+         "type": "nominal",
+         "legend": {"symbolOpacity": 1, "orient": "bottom", "direction": "horizontal", "columns": 7, "labelColor": "white"},
+         "scale": {
+             "domain": [
+             "Land Use",
+             "Farm",
+             "Animal Feed",
+             "Processing",
+             "Transport",
+             "Retail",
+             "Packaging"
+             ],
+             "scheme": "yellowgreenblue"
+         },
+         "title": "Emissions from:",
+         "titleColor": "white"
+         }
+     },
+     "config": {
+         "view": {
+         "cornerRadius": 10,
+         "stroke": "transperent"
+         }
+      },
+      "autosize": {
+         "type": "fit",
+         "contains": "padding"
+      }
+ }
