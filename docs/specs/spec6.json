@@ -4,12 +4,12 @@
         "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/chartENV10.csv"
     },
     "mark": "bar",
-    "width": 700,
+    "width": 880,
     "height": 500,
     "background": "#1C1F24",
     "title": {
-        "text": "UK CO2 emissions by sector (million tonnes)",
-        "subtitle": "Source: Gov.uk (BEIS)",
+        "text": "UK CO2 Emissions by Sector (million tonnes)",
+        "subtitle": "Source: BEIS",
         "subtitleFontStyle": "italic",
         "subtitleColor": "white",
         "subtitleFontSize": 12,
