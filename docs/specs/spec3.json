@@ -11,7 +11,7 @@
         "subtitleColor": "#FFFFFF"  
     },
     "height": 500,
-    "width": 700,
+    "width": 880,
     "autosize": {"type": "fit", "contains": "padding", "resize": false},
     "background": "#1C1F24", 
     "view": {"fill": "#1C1F24", "strokeOpacity": 0}, 
@@ -19,7 +19,12 @@
         "url": "https://api.economicsobservatory.com/gbr/binv?vega",
         "format": {"type": "json"}
     },
-    "mark": {"type": "line", "color": "#f4134d", "strokeWidth": 2}, 
+    "mark": {
+        "type": "line", 
+        "color": "#f4134d", 
+        "strokeWidth": 2,
+        "tooltip": true
+    }, 
     "encoding": {
         "x": {
             "field": "date",
