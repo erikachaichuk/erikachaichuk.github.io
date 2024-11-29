@@ -4,12 +4,12 @@
          "url": "https://raw.githubusercontent.com/MW17668/MW17668.github.io/main/myDataJuly1.csv"
      },
      "mark": {"type": "bar", "tooltip": true},
-     "width": 700,
+     "width": 880,
      "height": 500,
      "background": "#1C1F24", 
      "view": {"fill": "#1C1F24", "strokeOpacity": 0},
      "title": {
-         "text": "UK CO2 greenhouse gas emissions in the agricultural industry (kg of CO2 per 1 kg of food type)",
+         "text": "UK CO2 Greenhouse Gas Emissions In The Agricultural Industry (kg of CO2 per 1 kg of food type)",
          "subtitle": "Source: Our World in Data",
          "subtitleFontSize": 12,
          "subtitleFontStyle": "italic",
