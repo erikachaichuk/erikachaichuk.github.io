@@ -1,11 +1,11 @@
- {
+{
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Canada Unemployment rate", "subtitle": "", "color": "white"},
+    "title": {"text": "US Unemployment rate", "subtitle": "", "color": "white"},
     "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
-    "width": 200,
+    "width": 300,
     "height": 200,
     "data": {
-        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/CA_unemployment.json"
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/US_unemployment.json"
     },
     "mark": {"type": "line", "color": "skyblue"},
     "transform": [
