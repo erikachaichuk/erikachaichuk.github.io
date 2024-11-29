@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "UK Inflation",
+        "text": "UK Inflation (%)",
         "anchor": "start",
-        "subtitle": "All items, % | Source: ONS through ECO API",
+        "subtitle": "Source: ONS",
         "fontSize": 14,
         "subtitleFontSize": 12,
         "subtitleFontStyle": "italic",
