@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "UK Business Investment",
+        "text": "UK Business Investment (% of GDP)",
         "anchor": "start",
-        "subtitle": "Business Gov GFCF, % of GDP | Source: ONS through ECO API",
+        "subtitle": "Source: ONS through ECO API",
         "subtitleFontStyle": "italic",
         "fontSize": 14,
         "subtitleFontSize": 12,
