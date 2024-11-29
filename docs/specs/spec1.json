@@ -14,13 +14,15 @@
         "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/data/chartENV11.csv"
     },
     "height": 500,
-    "width": 700,
+    "width": 880,
     "background": "#1C1F24", 
     "view": {"fill": "#1C1F24", "strokeOpacity": 0},
     "mark": {"type": "line",
-        "point": false,
+        "point": true,
         "interpolate": "linear",
-        "color": "white"},
+        "color": "white",
+        "tooltip": true
+    },
     "encoding": {
         "x": {
             "field": "Time",
