@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {"text": "UK Unemployment rate", "subtitle": "", "color": "white", "subtitleColor": "white"},
     "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
-    "width": 200,
+    "width": 300,
     "height": 200,
     "data": {
         "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/UK_unemployment.json"
