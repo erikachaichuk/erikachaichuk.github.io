@@ -3,7 +3,7 @@
     "title": {
         "text": "UK Business Investment (% of GDP)",
         "anchor": "start",
-        "subtitle": "Source: ONS through ECO API",
+        "subtitle": "Source: ONS",
         "subtitleFontStyle": "italic",
         "fontSize": 14,
         "subtitleFontSize": 12,
