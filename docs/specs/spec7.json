@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Recreated Economist graph.",
+    "width": 850,
+    "height": 500,
+    "background": "#e6f3ff",
+    "data": {
+        "values": [
+        {"name": "Jeremy Corbyn", "likes": 5210},
+        {"name": "Labour Party", "likes": 750},
+        {"name": "Momentum", "likes": 200},
+        {"name": "Owen Smith", "likes": 100},
+        {"name": "Andy Burnham", "likes": 100},
+        {"name": "Saving Labour", "likes": 50}
+        ]
+    },
+    "mark": {
+        "type": "bar",
+        "color": "#8B4513"
+    },
+    "encoding": {
+        "y": {
+            "field": "name",
+            "type": "nominal",
+            "title": null,
+            "sort": "-x"
+        },
+        "x": {
+            "field": "likes",
+            "type": "quantitative",
+            "title": "",
+        "axis": {
+            "grid": false
+        }
+        }
+    },
+    "config": {
+        "view": {"stroke": null},
+        "axis": {
+        "labelFont": "Arial",
+        "titleFont": "Arial"
+        },
+        "title": {
+        "font": "Arial",
+        "fontSize": 14
+        }
+    },
+    "title": {
+        "text": "Left-click",
+        "subtitle": "Average number of likes per Facebook post\n2016",
+        "align": "left",
+        "anchor": "start",
+        "offset": 20
+    }
+}
