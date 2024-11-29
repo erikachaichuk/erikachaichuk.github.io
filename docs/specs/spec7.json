@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "Recreated Economist graph.",
-    "width": 850,
+    "width": 800,
     "height": 500,
     "background": "#e6f3ff",
     "data": {
