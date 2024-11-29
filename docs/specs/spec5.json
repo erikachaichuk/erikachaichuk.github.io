@@ -9,8 +9,8 @@
      "background": "#1C1F24", 
      "view": {"fill": "#1C1F24", "strokeOpacity": 0},
      "title": {
-         "text": "Food - CO2 greenhouse gas emissions",
-         "subtitle": "Kg of CO2 per 1 kg of food | Source: Our World in Data",
+         "text": "UK CO2 greenhouse gas emissions in the agricultural industry (kg of CO2 per 1 kg of food type)",
+         "subtitle": "Source: Our World in Data",
          "subtitleFontSize": 12,
          "subtitleFontStyle": "italic",
          "anchor": "start",
