@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Carbon per capita by country",
+    "description": "",
     "title": {
-        "text": "Innovation: environmental technology patents",
-        "subtitle": "Environmental patents as share national total, G7 | Source: OECD",
+        "text": "Innovation: Environmental Technology Patents",
+        "subtitle": "Source: OECD",
         "subtitleFontStyle": "italic",
         "subtitleFontSize": 10,
         "anchor": "start",
