@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "China Unemployment rate", "subtitle": "", "color": "white"},
+    "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
+    "width": 200,
+    "height": 200,
+    "data": {
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/CN_unemployment.json"
+    },
+    "mark": {"type": "line", "color": "skyblue"},
+    "transform": [
+        {"calculate": "(datum.quarter == 'Q1' ? '1' : datum.quarter == 'Q2' ? '4' : datum.quarter == 'Q3' ? '7' : '10')", "as": "month"}, 
+        {"calculate": "datetime(datum.year, datum.month)", "as": "date"}
+    ],
+    "encoding": {
+        "x": {"field": "date", "type": "temporal", "title": "Date", "axis": {"grid": false, "labelColor": "white","domainColor": "white", "titleColor": "white"}},
+        "y": {"field": "value", "type": "quantitative", "title": "Import Value", "axis": {"grid": false,"labelColor": "white","domainColor": "white", "titleColor": "white"}}
+    }
+}
