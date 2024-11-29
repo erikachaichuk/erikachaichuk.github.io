@@ -14,8 +14,8 @@
   },
   
     "config": {"background": "#1C1F24", "view": {"stroke": "transparent"}},
-    "width":700,
-    "height":500,
+    "width": 800,
+    "height": 500,
   
     "data": {
         "name":"myData",
@@ -27,7 +27,8 @@
       "type": "line",
       "color":"#00BFFF",
       "strokeWidth":2,
-      "opacity":1
+      "opacity":1,
+      "tooltip": true
     },
   
     "transform": [
