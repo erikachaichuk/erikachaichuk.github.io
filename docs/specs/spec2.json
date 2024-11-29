@@ -14,14 +14,15 @@
         "url": "https://raw.githubusercontent.com/RDeconomist/RDeconomist.github.io/main/charts/ukMacro/GI4.DataHub.GrowthInnovationOutputperHour.csv"
     },
     "height": 500,
-    "width": 700,
+    "width": 880,
     "background": "#1C1F24", 
     "view": {"fill": "#1C1F24", "strokeOpacity": 0},
     "mark": {
         "type": "line",
         "point": false,
         "interpolate": "monotone",
-        "color": "blueviolet"
+        "color": "blueviolet",
+        "tooltip": true
     },
     "encoding": {
         "x": {
