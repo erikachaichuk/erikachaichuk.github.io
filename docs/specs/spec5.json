@@ -3,7 +3,7 @@
      "data": {
          "url": "https://raw.githubusercontent.com/MW17668/MW17668.github.io/main/myDataJuly1.csv"
      },
-     "mark": "bar",
+     "mark": {"type": "bar", "tooltip": true},
      "width": 700,
      "height": 500,
      "background": "#1C1F24", 
@@ -38,8 +38,7 @@
              ],
              "scheme": "yellowgreenblue"
          },
-         "title": "Emissions from:",
-         "titleColor": "white"
+         "title": "Emissions from:"
          }
      },
      "config": {
