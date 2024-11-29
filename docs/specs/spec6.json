@@ -8,8 +8,8 @@
     "height": 500,
     "background": "#1C1F24",
     "title": {
-        "text": "CO2 emissions by sector, United Kingdom",
-        "subtitle": "Millon tonnes | Source: Gov.uk (BEIS)",
+        "text": "UK CO2 emissions by sector (million tonnes)",
+        "subtitle": "Source: Gov.uk (BEIS)",
         "subtitleFontStyle": "italic",
         "subtitleColor": "white",
         "subtitleFontSize": 12,
