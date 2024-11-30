@@ -1,60 +1,98 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Changed Economist graph.",
-    "width": 800,
-    "height": 500,
-    "background": "#e6f3ff",
+    "description": "A bar chart displaying the average number of likes per Facebook post in thousands.",
     "data": {
-        "values": [
-        {"name": "Jeremy Corbyn", "likes": 5.2},
-        {"name": "Labour Party", "likes": 0.8},
-        {"name": "Momentum", "likes": 0.3},
-        {"name": "Owen Smith", "likes": 0.2},
-        {"name": "Andy Burnham", "likes": 0.2},
-        {"name": "Saving Labour", "likes": 0.1}
-        ]
-    },
-    "mark": {
-        "type": "bar",
-        "color": "#1f77b4"
-    },
-    "encoding": {
-        "y": {
-            "field": "name",
-            "type": "nominal",
-            "title": null,
-            "sort": "-x"
-        },
-        "x": {
-        "field": "likes",
-        "type": "quantitative",
-        "title": "",
-        "axis": {
-            "grid": false,
-            "values": [0, 1, 2, 3, 4, 5, 6],
-            "tickMinStep": 1
-        },
-        "scale": {
-            "domain": [0, 6]
-        }
-        }
-    },
-    "config": {
-        "view": {"stroke": null},
-        "axis": {
-        "labelFont": "Arial",
-        "titleFont": "Arial"
-        },
-        "title": {
-        "font": "Arial",
-        "fontSize": 14
-        }
+      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/original_chart.csv"
     },
     "title": {
-        "text": "Left-click",
-        "subtitle": "Average number of likes per Facebook post\n2016, '000",
-        "align": "left",
-        "anchor": "start",
-        "offset": 20
-    }
-}
+      "text": ["Left-click"],
+      "subtitle": ["Average number of likes per Facebook post", "2016, '000"],
+      "anchor": "start",
+      "fontSize": 18,
+      "color": "black",
+      "align": "left",
+      "subtitleFontSize": 16,
+      "subtitleColor": "black",
+      "dy": 80,
+      "dx": -100,
+      "frame": "group",
+      "font": "Arial"
+    },
+    "width": 760,
+    "height": 500,
+    "background": "#e6f7ff",
+    "layer": [
+      {
+        "transform": [
+          {"calculate": "datum.Likes / 1000", "as": "LikesInThousands"}
+        ],
+        "encoding": {
+          "y": {
+            "field": "Name",
+            "type": "nominal",
+            "sort": "-x",
+            "axis": {
+              "labelAngle": 0,
+              "title": null,
+              "labelFont": "Arial",
+              "labelFontSize": 12,
+              "labelFontWeight": "bold"
+            }
+          },
+          "x": {
+            "field": "LikesInThousands",
+            "type": "quantitative",
+            "scale": {"domain": [0, 6], "nice": true},
+            "axis": {
+              "orient": "top",
+              "tickCount": 7,
+              "values": [0, 1, 2, 3, 4, 5, 6],
+              "grid": true,
+              "gridColor": "white",
+              "gridOpacity": 1,
+              "labelFont": "Arial",
+              "labelFontSize": 12,
+              "title": null
+            }
+          }
+        },
+        "layer": [
+          {"mark": {"type": "bar", "color": "#2f68b2"}},
+          {
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "bottom",
+              "dx": -10,
+              "dy": 30,
+              "fontSize": 10,
+              "color": "gray",
+              "font": "Arial"
+            }
+          }
+        ]
+      },
+      {
+        "mark": {
+          "type": "text",
+          "color": "transparent",
+          "size": 1,
+          "align": "left",
+          "baseline": "top",
+          "dx": -100,
+          "dy": -15
+        },
+        "encoding": {"text": {"value": " "}}
+      },
+      {
+        "mark": {
+          "type": "rect",
+          "color": "transparent",
+          "width": 40,
+          "height": 10,
+          "x": -80,
+          "y": -80
+        }
+      }
+    ]
+  }
