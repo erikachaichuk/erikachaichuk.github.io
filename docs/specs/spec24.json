@@ -34,7 +34,7 @@
         "field": "quote_date",
         "type": "temporal",
         "title": "Date",
-        "axis": {"grid": false, "labelColor": "white"}
+        "axis": {"grid": false, "labelColor": "white", "titleColor": "white"}
       },
       "y": {
         "field": "inflation",
