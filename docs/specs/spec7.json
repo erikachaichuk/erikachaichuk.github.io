@@ -1,55 +1,105 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Recreated Economist graph.",
-    "width": 800,
-    "height": 500,
-    "background": "#e6f3ff",
+    "description": "A bar chart with the x-axis cutoff at 1000, displaying the true value for the top bar.",
     "data": {
-        "values": [
-        {"name": "Jeremy Corbyn", "likes": 5210},
-        {"name": "Labour Party", "likes": 750},
-        {"name": "Momentum", "likes": 200},
-        {"name": "Owen Smith", "likes": 100},
-        {"name": "Andy Burnham", "likes": 100},
-        {"name": "Saving Labour", "likes": 50}
-        ]
-    },
-    "mark": {
-        "type": "bar",
-        "color": "#8B4513"
-    },
-    "encoding": {
-        "y": {
-            "field": "name",
-            "type": "nominal",
-            "title": null,
-            "sort": "-x"
-        },
-        "x": {
-            "field": "likes",
-            "type": "quantitative",
-            "title": "",
-        "axis": {
-            "grid": false
-        }
-        }
-    },
-    "config": {
-        "view": {"stroke": null},
-        "axis": {
-        "labelFont": "Arial",
-        "titleFont": "Arial"
-        },
-        "title": {
-        "font": "Arial",
-        "fontSize": 14
-        }
+      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/original_chart.csv"
     },
     "title": {
-        "text": "Left-click",
-        "subtitle": "Average number of likes per Facebook post\n2016",
-        "align": "left",
-        "anchor": "start",
-        "offset": 20
-    }
-}
+      "text": ["Left-click"],
+      "subtitle": "Average number of likes per Facebook post 2016",
+      "anchor": "start",
+      "fontSize": 18,
+      "color": "black",
+      "align": "left",
+      "subtitleFontSize": 16,
+      "subtitleColor": "black",
+      "dy": 50,
+      "dx": -50,
+      "frame": "group"
+    },
+    "transform": [
+      {
+        "calculate": "datum.Likes > 1000 ? 1000 : datum.Likes",
+        "as": "CappedLikes"
+      }
+    ],
+    "width": 760,
+    "height": 500,
+    "background": "#e6f7ff",
+    "layer": [
+      {
+        "mark": {
+          "type": "rect",
+          "x": -100,
+          "y": -70,
+          "width": 10,
+          "height": 20,
+          "color": "#b22222"
+        }
+      },
+      {
+        "encoding": {
+          "y": {
+            "field": "Name",
+            "type": "nominal",
+            "sort": "-x",
+            "axis": {"labelAngle": 0, "title": null}
+          },
+          "x": {
+            "field": "CappedLikes",
+            "type": "quantitative",
+            "scale": {"domain": [0, 1000]},
+            "axis": {
+              "title": "Likes",
+              "orient": "top",
+              "tickCount": 5,
+              "values": [0, 250, 500, 750, 1000],
+              "gridColor": "white"
+            }
+          }
+        },
+        "layer": [
+          {
+            "mark": {"type": "bar"},
+            "encoding": {
+              "color": {
+                "field": "Name",
+                "type": "nominal",
+                "scale": {
+                  "range": ["#d55e00", "#e67300", "#e68a00", "#e6a300", "#e6b800"]
+                },
+                "legend": null
+              }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "right",
+              "dx": -5,
+              "dy": -3,
+              "fontSize": 12,
+              "color": "black"
+            },
+            "encoding": {
+              "text": {
+                "condition": {"test": "datum.Likes == 5210", "value": "5,210"},
+                "value": ""
+              }
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "bottom",
+              "dx": -10,
+              "dy": 30,
+              "fontSize": 10,
+              "color": "gray"
+            }
+          }
+        ]
+      }
+    ]
+  }
