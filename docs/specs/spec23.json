@@ -1,1 +1,46 @@
-
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+    "title": {
+      "text": "The Price of Personal Care Products",
+      "subtitle": "Source: provided by the course",
+      "subtitleColor": "white",
+      "anchor": "start",
+    "align": "left"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/personal_care_products.json"
+    },
+    "width": 800,
+    "height": 500,
+    "config": {
+      "background": "#1C1F24",
+      "title": {"color": "white"},
+      "style": {"guide-label": {"fill": "white"}, "guide-title": {"fill": "white"}},
+      "axis": {"domainColor": "white", "gridColor": "#333", "tickColor": "white", "grid": false},
+      "legend": {"labelColor": "white", "titleColor": "white"}
+    },
+    "mark": {"type": "line", "size": 7, "opacity": 0.5},
+    "encoding": {
+      "x": {
+        "field": "quote_date",
+        "type": "temporal",
+        "title": "",
+        "scale": {"domain": ["1987", "2025"]}
+      },
+      "y": {
+        "field": "mean_price",
+        "type": "quantitative",
+        "title": "Mean Price (£)"
+      },
+      "color": {
+        "field": "description",
+        "legend": {
+          "title": "",
+          "orient": "top-left",
+          "symbolSize": 20,
+          "labelFontSize": 8
+        }
+      }
+    }
+  }
