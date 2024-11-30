@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "",
+     "title": {
+          "text": "Employees vs Revenue: Largest Companies in the US",
+          "subtitle": "Source: Wikipedia",
+          "subtitleFontStyle": "italic",
+          "subtitleFontSize": 10,
+          "anchor": "start",
+          "color": "white",
+          "subtitleColor": "white" 
+      },
+    "width": 800,
+    "height": 500,
+    "background": "#1C1F24", 
+    "view": {"fill": "#1C1F24", "strokeOpacity": 0},
+    "data": {
+      "values": [
+        {"Name": "Cargill", "Employees": 160000, "Revenue": 177},
+        {"Name": "Koch Industries", "Employees": 120000, "Revenue": 125},
+        {"Name": "Publix Super Markets", "Employees": 250000, "Revenue": 54.5},
+        {"Name": "Mars, Incorporated", "Employees": 140000, "Revenue": 47},
+        {"Name": "H-E-B", "Employees": 145000, "Revenue": 43.6},
+        {"Name": "Reyes Holdings", "Employees": 36000, "Revenue": 40},
+        {"Name": "Enterprise Holdings", "Employees": 90000, "Revenue": 35},
+        {"Name": "C&S Wholesale Grocers", "Employees": 15000, "Revenue": 34.7},
+        {"Name": "Love's", "Employees": 40000, "Revenue": 26.5},
+        {"Name": "Southern Glazer's Wine and Spirits", "Employees": 24000, "Revenue": 26.0}
+      ]
+    },
+    "mark": {
+      "type": "point",
+      "point": false,
+      "interpolate": "monotone",
+      "color": "hotpink",
+      "tooltip": true},
+    "encoding": {
+      "x": {
+        "field": "Employees", 
+        "type": "quantitative", 
+        "title": "Number of Employees",
+        "axis": {
+         "title": null,
+              "grid": false,
+              "labelColor": "white",
+              "labelSeparation": 20,
+              "ticks": false
+        }
+      },
+      "y": {
+        "field": "Revenue", 
+        "type": "quantitative", 
+        "title": "Revenue (USD billions)",
+        "axis": {
+          "grid": false, 
+          "labelColor": "white",
+          "titleColor": "white"
+        }
+      }
+    }
+  }
