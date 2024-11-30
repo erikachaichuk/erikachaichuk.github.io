@@ -41,6 +41,11 @@
           "symbolSize": 20,
           "labelFontSize": 8
         }
-      }
+      },
+      "tooltip": [
+      {"field": "quote_date", "type": "temporal", "title": "Date"},
+      {"field": "mean_price", "type": "quantitative", "title": "Mean Price (£)"},
+      {"field": "description", "type": "nominal", "title": "Product"}
+      ]
     }
   }
