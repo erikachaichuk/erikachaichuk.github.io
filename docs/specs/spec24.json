@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "",
     "title": {
-          "text": "Inflation trends over time by region",
+          "text": "UK Inflation Over Time by Region",
           "subtitle": "Source: provided data by the course",
           "subtitleFontStyle": "italic",
           "subtitleFontSize": 10,
