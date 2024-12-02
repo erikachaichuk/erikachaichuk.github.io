@@ -1,0 +1,84 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "title": {
+        "text": "Age Distribution ",
+        "subtitle": "Source: Kaggle",
+        "subtitleFontStyle": "italic",
+        "subtitleFontSize": 10,
+        "anchor": "start",
+        "color": "white",
+        "subtitleColor": "white"
+    },
+    "width": 500,
+    "height": 300,
+    "padding": 5,
+    "background": "#1C1F24",
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"bin": "20-30", "count": 5},
+          {"bin": "30-40", "count": 20},
+          {"bin": "40-50", "count": 35},
+          {"bin": "50-60", "count": 25},
+          {"bin": "60-70", "count": 20},
+          {"bin": "70-80", "count": 10}
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "domain": {"data": "table", "field": "bin"},
+        "range": "width",
+        "padding": 0.2
+      },
+      {
+        "name": "yscale",
+        "type": "linear",
+        "domain": {"data": "table", "field": "count"},
+        "range": "height",
+        "nice": true
+      }
+    ],
+    "axes": [
+      {
+        "orient": "bottom",
+        "scale": "xscale",
+        "labelColor": "white",
+        "labelFontSize": 12,
+        "labelAngle": -45,
+        "title": "Age Range",
+        "titleColor": "white"
+      },
+      {
+        "orient": "left",
+        "scale": "yscale",
+        "labelColor": "white",
+        "labelFontSize": 12,
+        "title": "Number of Purchases",
+        "titleColor": "white"
+      }
+    ],
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "bin"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "count"},
+            "y2": {"scale": "yscale", "value": 0},
+            "fill": {"value": "pink"}
+          },
+          "update": {
+            "stroke": {"value": "white"},
+            "strokeWidth": {"value": 1}
+          }
+        }
+      }
+    ]
+  }
+  
