@@ -1,0 +1,74 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "title": {
+      "text": "Deal Satisfaction by Country",
+      "subtitle": "Source: Kaggle",
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 10,
+      "anchor": "start",
+      "color": "white",
+      "subtitleColor": "white"
+    },
+    "width": 500,
+    "height": 300,
+    "padding": 5,
+    "background": "#1C1F24",
+    "data": [
+      {
+        "name": "table",
+        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/averages_by_country.csv",
+        "format": {"type": "csv"}
+      }
+    ],
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "domain": {"data": "table", "field": "country"},
+        "range": "width",
+        "padding": 0.2
+      },
+      {
+        "name": "yscale",
+        "type": "linear",
+        "domain": {"data": "table", "field": "deal_satisfaction"},
+        "range": "height",
+        "nice": true
+      }
+    ],
+    "axes": [
+      {
+        "orient": "bottom",
+        "scale": "xscale",
+        "labelColor": "white",
+        "labelAngle": -45,
+        "labelFontSize": 8
+      },
+      {
+        "orient": "left",
+        "scale": "yscale",
+        "labelColor": "white",
+        "labelFontSize": 9
+      }
+    ],
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "country"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "deal_satisfaction"},
+            "y2": {"scale": "yscale", "value": 0},
+            "fill": {"value": "teal"}
+          },
+          "update": {
+            "stroke": {"value": "white"},
+            "strokeWidth": {"value": 1}
+          }
+        }
+      }
+    ]
+  }
+  
