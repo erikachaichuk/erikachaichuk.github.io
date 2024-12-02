@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/stacked_area.csv"
+    },
+    "title": {
+          "text": "Total Number of Sales per Year by Building",
+          "subtitle": "Source: Kaggle",
+          "subtitleFontStyle": "italic",
+          "subtitleFontSize": 10,
+          "anchor": "start",
+          "color": "white",
+          "subtitleColor": "white"
+        },
+      "width": 600,
+      "height": 400,
+      "background": "#1C1F24",
+    "transform": [
+      {
+        "fold": ["building1", "building2", "building3", "building4", "building5"],
+        "as": ["Building", "Sales"]
+      }
+    ],
+    "mark": {
+      "type": "area",
+      "line": true,
+      "point": true,
+      "tooltip": true
+    },
+    "encoding": {
+      "x": {
+        "field": "year_sale",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {"labelColor": "white", "titleColor": "white"}
+      },
+      "y": {
+        "field": "Sales",
+        "type": "quantitative",
+        "title": "Number of Sales",
+        "axis": {"labelColor": "white", "titleColor": "white"}
+      },
+      "color": {
+        "field": "Building",
+        "type": "nominal",
+        "title": "Building",
+        "legend": {"labelColor": "white", "titleColor": "white"}
+      },
+      "tooltip": [
+        {"field": "year_sale", "type": "ordinal", "title": "Year"},
+        {"field": "Building", "type": "nominal"},
+        {"field": "Sales", "type": "quantitative"}
+      ]
+    },
+    "config": {
+      "view": {"fill": "#1C1F24"},
+      "axis": {
+        "gridColor": "white",
+        "gridOpacity": 0.2
+      }
+    }
+  }
+  
