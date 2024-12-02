@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "title": {
-        "text": "Age Distribution ",
+        "text": "Age Distribution",
         "subtitle": "Source: Kaggle",
         "subtitleFontStyle": "italic",
         "subtitleFontSize": 10,
@@ -9,8 +9,8 @@
         "color": "white",
         "subtitleColor": "white"
     },
-    "width": 500,
-    "height": 300,
+    "width": 800,
+    "height": 500,
     "padding": 5,
     "background": "#1C1F24",
     "data": [
@@ -48,7 +48,7 @@
         "scale": "xscale",
         "labelColor": "white",
         "labelFontSize": 12,
-        "labelAngle": -45,
+        "labelAngle": 0,
         "title": "Age Range",
         "titleColor": "white"
       },
