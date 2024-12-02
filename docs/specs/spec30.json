@@ -1,0 +1,141 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "title": {
+      "text": "Segmentation of US Clients By State",
+      "subtitle": "Source: Kaggle",
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 10,
+      "anchor": "start",
+      "color": "white",
+      "subtitleColor": "white"
+    },
+    "width": 600,
+    "height": 400,
+    "padding": 10,
+    "background": "#1C1F24",
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"state": "California", "sold": 120, "cumulative": 40},
+          {"state": "Nevada", "sold": 30, "cumulative": 60},
+          {"state": "Colorado", "sold": 20, "cumulative": 75},
+          {"state": "Oregon", "sold": 15, "cumulative": 85},
+          {"state": "Arizona", "sold": 10, "cumulative": 92},
+          {"state": "Utah", "sold": 8, "cumulative": 96},
+          {"state": "Virginia", "sold": 5, "cumulative": 98},
+          {"state": "Kansas", "sold": 4, "cumulative": 99},
+          {"state": "Wyoming", "sold": 1, "cumulative": 100}
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "xscale",
+        "type": "band",
+        "domain": {"data": "table", "field": "state"},
+        "range": "width",
+        "padding": 0.1
+      },
+      {
+        "name": "yscale",
+        "type": "linear",
+        "domain": {"data": "table", "field": "sold"},
+        "range": "height",
+        "nice": true
+      },
+      {
+        "name": "y2scale",
+        "type": "linear",
+        "domain": [0, 100],
+        "range": "height"
+      }
+    ],
+    "axes": [
+      {
+        "orient": "bottom",
+        "scale": "xscale",
+        "title": "",
+        "grid": false,
+        "encode": {
+          "domain": {"update": {"stroke": {"value": "white"}}},
+          "ticks": {"update": {"stroke": {"value": "white"}}},
+          "labels": {"update": {"fill": {"value": "white"}}}
+        }
+      },
+      {
+        "orient": "left",
+        "scale": "yscale",
+        "title": "Apartments Sold",
+        "grid": false,
+        "encode": {
+          "domain": {"update": {"stroke": {"value": "white"}}},
+          "ticks": {"update": {"stroke": {"value": "white"}}},
+          "labels": {"update": {"fill": {"value": "white"}}},
+          "title": {"update": {"fill": {"value": "white"}}}
+        }
+      },
+      {
+        "orient": "right",
+        "scale": "y2scale",
+        "title": "Cumulative Frequency",
+        "format": "%",
+        "grid": false,
+        "encode": {
+          "domain": {"update": {"stroke": {"value": "white"}}},
+          "ticks": {"update": {"stroke": {"value": "white"}}},
+          "labels": {"update": {"fill": {"value": "white"}}},
+          "title": {"update": {"fill": {"value": "white"}}}
+        }
+      }
+    ],
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "state"},
+            "width": {"scale": "xscale", "band": 1},
+            "y": {"scale": "yscale", "field": "sold"},
+            "y2": {"scale": "yscale", "value": 0},
+            "fill": {"value": "#008080"}
+          },
+          "update": {
+            "tooltip": {"signal": "{'State': datum.state, 'Sold': datum.sold}"}
+          }
+        }
+      },
+      {
+        "type": "line",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "state", "band": 0.5},
+            "y": {"scale": "y2scale", "field": "cumulative"},
+            "stroke": {"value": "#FF7F0E"},
+            "strokeWidth": {"value": 2}
+          }
+        }
+      },
+      {
+        "type": "symbol",
+        "from": {"data": "table"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "xscale", "field": "state", "band": 0.5},
+            "y": {"scale": "y2scale", "field": "cumulative"},
+            "size": {"value": 100},
+            "stroke": {"value": "#FF7F0E"},
+            "fill": {"value": "#FF7F0E"}
+          },
+          "update": {
+            "tooltip": {
+              "signal": "{'State': datum.state, 'Cumulative Frequency': datum.cumulative + '%'}"
+            }
+          }
+        }
+      }
+    ]
+  }
+  
