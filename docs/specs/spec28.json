@@ -42,13 +42,13 @@
         "scale": "xscale",
         "labelColor": "white",
         "labelAngle": 0,
-        "labelFontSize": 10
+        "labelFontSize": 12
       },
       {
         "orient": "left",
         "scale": "yscale",
         "labelColor": "white",
-        "labelFontSize": 9
+        "labelFontSize": 12
       }
     ],
     "marks": [
