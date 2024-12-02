@@ -41,7 +41,7 @@
         "orient": "bottom",
         "scale": "xscale",
         "labelColor": "white",
-        "labelAngle": -20,
+        "labelAngle": 0,
         "labelFontSize": 10
       },
       {
