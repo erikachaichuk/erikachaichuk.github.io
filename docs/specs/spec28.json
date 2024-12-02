@@ -9,8 +9,8 @@
       "color": "white",
       "subtitleColor": "white"
     },
-    "width": 500,
-    "height": 300,
+    "width": 800,
+    "height": 500,
     "padding": 5,
     "background": "#1C1F24",
     "data": [
@@ -41,8 +41,8 @@
         "orient": "bottom",
         "scale": "xscale",
         "labelColor": "white",
-        "labelAngle": -45,
-        "labelFontSize": 8
+        "labelAngle": -20,
+        "labelFontSize": 10
       },
       {
         "orient": "left",
