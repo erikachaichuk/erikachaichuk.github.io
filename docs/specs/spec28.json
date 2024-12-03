@@ -34,7 +34,13 @@
         "domain": {"data": "table", "field": "deal_satisfaction"},
         "range": "height",
         "nice": true
-      }
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "deal_satisfaction"},
+        "range": {"scheme": "redyellowblue"}
+      }      
     ],
     "axes": [
       {
@@ -61,7 +67,7 @@
             "width": {"scale": "xscale", "band": 1},
             "y": {"scale": "yscale", "field": "deal_satisfaction"},
             "y2": {"scale": "yscale", "value": 0},
-            "fill": {"value": "teal"}
+            "fill": {"scale": "color", "field": "deal_satisfaction"}
           },
           "update": {
             "stroke": {"value": "white"},
