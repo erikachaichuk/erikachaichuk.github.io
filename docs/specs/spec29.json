@@ -40,7 +40,13 @@
         "domain": {"data": "table", "field": "count"},
         "range": "height",
         "nice": true
-      }
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "deal_satisfaction"},
+        "range": {"scheme": "viridis"}
+      }  
     ],
     "axes": [
       {
@@ -71,7 +77,7 @@
             "width": {"scale": "xscale", "band": 1},
             "y": {"scale": "yscale", "field": "count"},
             "y2": {"scale": "yscale", "value": 0},
-            "fill": {"value": "pink"}
+            "fill": {"scale": "color", "field": "deal_satisfaction"}
           },
           "update": {
             "stroke": {"value": "white"},
