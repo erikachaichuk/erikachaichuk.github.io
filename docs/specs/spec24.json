@@ -1,58 +1,58 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "",
-    "title": {
-          "text": "UK Inflation Over Time by Region",
-          "subtitle": "Source: provided data by the course",
-          "subtitleFontStyle": "italic",
-          "subtitleFontSize": 10,
-          "anchor": "start",
-          "color": "white",
-          "subtitleColor": "white" 
-      },
-    "data": {
-      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/uk_inflation.json",
-      "format": {
-        "type": "json"
-      }
-    },
-    "mark": "line",
-    "width": 800,
-    "height": 500,
-    "config": {
-      "background": "#1C1F24",
-      "axis": {
-        "grid": false
-      },
-      "legend": {
-        "labelColor": "white",
-        "titleColor": "white"
-      }
-    },
-    "encoding": {
-      "x": {
-        "field": "quote_date",
-        "type": "temporal",
-        "title": "Date",
-        "axis": {"grid": false, "labelColor": "white", "titleColor": "white"}
-      },
-      "y": {
-        "field": "inflation",
-        "type": "quantitative",
-        "title": "Inflation",
-        "axis": {"grid": false, "labelColor": "white", "titleColor": "white"}
-      },
-      "color": {
-        "field": "region_new",
-        "type": "nominal",
-        "title": "Region",
-        "legend": {"orient": "top-right"}
-      },
-      "tooltip": [
-        {"field": "quote_date", "type": "temporal", "title": "Date"},
-        {"field": "inflation", "type": "quantitative", "title": "Inflation"},
-        {"field": "region_new", "type": "nominal", "title": "Region"}
-      ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "",
+  "title": {
+    "text": "UK Inflation Over Time by Region",
+    "subtitle": "Source: provided data by the course",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "white",
+    "subtitleColor": "white"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/uk_inflation.json",
+    "format": {"type": "json"}
+  },
+  "mark": "line",
+  "width": 800,
+  "height": 500,
+  "config": {
+    "background": "#1C1F24",
+    "axis": {"grid": false},
+    "legend": {"labelColor": "white", "titleColor": "white"}
+  },
+  "selection": {
+    "region": {
+      "type": "multi",
+      "fields": ["region_new"],
+      "bind": {"input": "select", "options": [null, "Region1", "Region2", "Region3", "Region4", "Region5", "Region6", "Region7", "Region8", "Region9", "Region10", "Region11", "Region12", "Region13"]},
+      "empty": "none"
     }
+  },
+  "encoding": {
+    "x": {
+      "field": "quote_date",
+      "type": "temporal",
+      "title": "Date",
+      "axis": {"grid": false, "labelColor": "white", "titleColor": "white"}
+    },
+    "y": {
+      "field": "inflation",
+      "type": "quantitative",
+      "title": "Inflation",
+      "axis": {"grid": false, "labelColor": "white", "titleColor": "white"}
+    },
+    "color": {
+      "field": "region_new",
+      "type": "nominal",
+      "title": "Region",
+      "legend": {"orient": "top-right"}
+    },
+    "tooltip": [
+      {"field": "quote_date", "type": "temporal", "title": "Date"},
+      {"field": "inflation", "type": "quantitative", "title": "Inflation"},
+      {"field": "region_new", "type": "nominal", "title": "Region"}
+    ]
   }
-  
+}
