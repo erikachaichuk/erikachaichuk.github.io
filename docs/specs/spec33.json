@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Scatter plot of latitude vs longitude with point size representing population and color representing median house value.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/housing.csv"
+  },
+  "title": {
+    "text": "Median House Value versus Population, California",
+    "subtitle": "Source: Kaggle",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "white",
+    "subtitleColor": "white"
+  },
+  "width": 700,
+  "height": 500,
+  "background": "#1C1F24",
+  "config": {
+    "background": "black",
+    "axis": {
+      "domainColor": "white",
+      "grid": false,
+      "tickColor": "white",
+      "labelColor": "white",
+      "titleColor": "white"
+    }
+  },
+  "selection": {
+    "priceFilter": {
+      "type": "single",
+      "fields": ["median_house_value"],
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 500000,
+        "step": 10000,
+        "name": "Filter Median House Price: "
+      }
+    }
+  },
+  "mark": {
+    "type": "circle",
+    "opacity": 0.7
+  },
+  "encoding": {
+    "x": {
+      "field": "longitude",
+      "type": "quantitative",
+      "axis": {"title": "Longitude"},
+      "scale": {"domain": [-125, -114]}
+    },
+    "y": {
+      "field": "latitude",
+      "type": "quantitative",
+      "axis": {"title": "Latitude"},
+      "scale": {"domain": [32, 43]}
+    },
+    "size": {
+      "field": "population",
+      "type": "quantitative",
+      "legend": {
+        "title": "Population",
+        "labelColor": "white",
+        "titleColor": "white"
+      }
+    },
+    "color": {
+      "field": "median_house_value",
+      "type": "quantitative",
+      "scale": {"scheme": "goldorange"},
+      "legend": {
+        "title": "Median House Value",
+        "labelColor": "white",
+        "titleColor": "white"
+      }
+    },
+    "tooltip": [
+      {"field": "latitude", "type": "quantitative"},
+      {"field": "longitude", "type": "quantitative"},
+      {"field": "population", "type": "quantitative"},
+      {"field": "median_house_value", "type": "quantitative"}
+    ],
+    "opacity": {
+      "condition": {"selection": "priceFilter", "value": 1},
+      "value": 0.1
+    }
+  }
+}
