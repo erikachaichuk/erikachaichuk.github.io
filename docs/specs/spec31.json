@@ -1,89 +1,115 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "title": {
-      "text": "Total Revenue per Year 2004-2010",
-      "subtitle": "Source: Kaggle",
-      "subtitleFontStyle": "italic",
-      "subtitleFontSize": 10,
-      "anchor": "start",
-      "color": "white",
-      "subtitleColor": "white"
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "title": {
+    "text": "Total Revenue per Year 2004-2010",
+    "subtitle": "Source: Kaggle",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "white",
+    "subtitleColor": "white"
+  },
+  "width": 760,
+  "height": 500,
+  "background": "#1C1F24",
+  "padding": 5,
+  "data": [
+    {
+      "name": "table",
+      "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/revenue_per_year.csv",
+      "format": {"type": "csv"}
     },
-    "width": 760,
-    "height": 500,
-    "background": "#1C1F24",
-    "padding": 5,
-    "data": [
-      {
-        "name": "table",
-        "url": "https://raw.githubusercontent.com/erikachaichuk/erikachaichuk.github.io/refs/heads/main/revenue_per_year.csv",
-        "format": {"type": "csv"}
+    {
+      "name": "filteredData",
+      "source": "table",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.year_sale <= selectedYear"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "selectedYear",
+      "value": 2010,
+      "bind": {
+        "input": "range",
+        "min": 2004,
+        "max": 2010,
+        "step": 1,
+        "name": "Select Year: "
       }
-    ],
-    "scales": [
-      {
-        "name": "xscale",
-        "type": "point",
-        "domain": {"data": "table", "field": "year_sale"},
-        "range": "width"
-      },
-      {
-        "name": "yscale",
-        "type": "linear",
-        "domain": {"data": "table", "field": "revenue$"},
-        "range": "height",
-        "nice": true
-      }
-    ],
-    "axes": [
-      {
-        "orient": "bottom",
-        "scale": "xscale",
-        "labelColor": "white",
-        "title": "Year",
-        "titleColor": "white",
-        "grid": false
-      },
-      {
-        "orient": "left",
-        "scale": "yscale",
-        "labelColor": "white",
-        "title": "Revenue ($ in Millions)",
-        "titleColor": "white",
-        "grid": false
-      }
-    ],
-    "marks": [
-      {
-        "type": "line",
-        "from": {"data": "table"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "year_sale"},
-            "y": {"scale": "yscale", "field": "revenue$"},
-            "stroke": {"value": "#1f77b4"},
-            "strokeWidth": {"value": 2}
-          },
-          "update": {
-            "tooltip": {"signal": "{'Year': datum.year, 'Revenue': datum.revenue}"}
+    }
+  ],
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "point",
+      "domain": {"data": "table", "field": "year_sale"},
+      "range": "width"
+    },
+    {
+      "name": "yscale",
+      "type": "linear",
+      "domain": {"data": "table", "field": "revenue$"},
+      "range": "height",
+      "nice": true
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "xscale",
+      "labelColor": "white",
+      "title": "Year",
+      "titleColor": "white",
+      "grid": false
+    },
+    {
+      "orient": "left",
+      "scale": "yscale",
+      "labelColor": "white",
+      "title": "Revenue ($ in Millions)",
+      "titleColor": "white",
+      "grid": false
+    }
+  ],
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "filteredData"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "year_sale"},
+          "y": {"scale": "yscale", "field": "revenue$"},
+          "stroke": {"value": "#1f77b4"},
+          "strokeWidth": {"value": 2}
+        },
+        "update": {
+          "tooltip": {
+            "signal": "{'Year': datum.year_sale, 'Revenue': datum.revenue$}"
           }
         }
-      },
-      {
-        "type": "symbol",
-        "from": {"data": "table"},
-        "encode": {
-          "enter": {
-            "x": {"scale": "xscale", "field": "year"},
-            "y": {"scale": "yscale", "field": "revenue"},
-            "size": {"value": 100},
-            "fill": {"value": "#1f77b4"}
-          },
-          "update": {
-            "tooltip": {"signal": "{'Year': datum.year, 'Revenue': datum.revenue}"}
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "filteredData"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xscale", "field": "year_sale"},
+          "y": {"scale": "yscale", "field": "revenue$"},
+          "size": {"value": 100},
+          "fill": {"value": "#1f77b4"}
+        },
+        "update": {
+          "tooltip": {
+            "signal": "{'Year': datum.year_sale, 'Revenue': datum.revenue$}"
           }
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
