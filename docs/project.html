@@ -56,28 +56,26 @@
                 <div class="about__container">
                     <div class="about__content">
                         <div style="border-radius: 25px; border: 2px solid #ff8177; padding: 20px; margin: 20px;">
+                            <h1 style="color: #6082fd;">Aim</h1>
                             <p>The real estate market is a complex and dynamic entity of a huge interest for investors and policymakers. 
                                     Analyzing the real estate market is essential due to several reasons. </p>
                                     <br>
-                                    <p><span style="color: #ff8177;">Firstly,</span> it promotes informed decision making. 
-                                    Such analysis provides with profitable investment opportunities and evaluates potential returns on properties for investors, 
-                                    as well as helps buyers to understand property prices, trends, and affordability before purchasing housing. </p>
+                                    <p><span style="color: #ff8177;">Firstly,</span> such analysis provides with profitable investment opportunities and evaluates potential returns on properties for investors. </p>
                                     <br>
-                                    <p><span style="color: #ff8177;">Secondly,</span> tracking trends on real estate market gives insights into whether the market is appreciating or depreciating, 
-                                    while analyzing how many properties are available versus sold on the market aids with identifying market imbalances. </p>
+                                    <p><span style="color: #ff8177;">Secondly,</span> analyzing how many properties are available versus sold on the market aids with identifying market imbalances. </p>
                             <br>
-                            <p> The aim of this project is to conduct an analysis of the real estate market by leveraging data visualization techniques using Python programming language. </p>
+                            <p> The aim of this project is to conduct an analysis of the real estate market by leveraging data visualization techniques. </p>
                             <br>
                                 <p>Specifically, this project focuses on: <br>
-                                1. <span style="color: #ff8177;">Deal Satisfaction:</span> comparison of deal satisfaction by country on a scale from 0 to 5, with 0 strongly dissatisfied, while 5 – strongly satisfied. </p>
+                                1. Comparison of deal satisfaction by country on a scale from 0 to 5, with 0 strongly dissatisfied, while 5 – strongly satisfied. </p>
                                 <br>
-                                2.	<span style="color: #ff8177;">Demographic Insights:</span> examination of age distribution within the market to understand the demographic composition of clients and its implications for the market targeting and segmentation. </p>
+                                2. Examination of age distribution within the market to understand the demographic composition of clients and its implications for the market targeting and segmentation. </p>
                                 <br>
-                                3.	<span style="color: #ff8177;">US Clientele Segmentation:</span> analysis of the geographical distribution of real estate clients in US, segmented by state, to identify state-level trends and opportunities. </p>
+                                3. Analysis of the geographical distribution of real estate clients in US, segmented by state, to identify state-level trends and opportunities. </p>
                                 <br>
-                                4.	<span style="color: #ff8177;">Revenue Trends:</span> assessment of the total revenues of the real estate market from 2004 to 2010 inclusive to understand the overall market growth.</p>
+                                4. Assessment of the total revenues of the real estate market from 2004 to 2010 inclusive to understand the overall market growth.</p>
                                 <br>
-                                5.	<span style="color: #ff8177;">Sale Analysis by Building Type:</span> track and visualization of the total number of sales per year by building type to reveal the demand patterns and preferences in property types. </p>
+                                5. Track and visualization of the total number of sales per year by building type to reveal the demand patterns and preferences in property types. </p>
                                 </p>
                             </div>
                         </div>
@@ -88,13 +86,14 @@
         <div class="about__container">
             <div class="about__content">
                 <div style="border-radius: 25px; border: 2px solid #ff8177; padding: 20px; margin: 20px;">
-                    <p>This project utilizes data from Kaggle. The corresponding csv files can be found on 
+                    <h1 style="color: #6082fd;">Data and challanges</h1>
+                    <p>This project utilizes data from Statista. The corresponding csv files can be found on 
                         <a href="https://www.github.com/erikachaichuk" style="color: #ff8177; text-decoration: underline;">Github</a>. </p> 
                     <br>
                     <p><span style="color: #ff8177;">First,</span>  the properties data set was cleaned. The ID column was converted to string type to avoid unintentional numeric operations on the ID series. 
                         The column was also renamed to discard the irrelevant metadata. </p>
                         <br>
-                        <p><span style="color: #ff8177;">Second,</span>  the customers data set was cleaned. There was an encoding issue with the ID column in the “properties”, and the first column in the “customers_raw_data” was also compromised. 
+                        <p><span style="color: #ff8177;">Second,</span> the customers data set was cleaned. There was an encoding issue with the ID column in the “properties”, and the first column in the “customers_raw_data” was also compromised. 
                         The column was thus renamed. Next, the entity column was turned from categoric to numeric by being renamed to ”individual” with values being mapped to 0 and 1. The “mortgage” variable was mapped to 0 and 1 as well. </p>
                         <br>
                         <p><span style="color: #ff8177;">Third,</span>  the two datasets were combined. That was possible through the “customer_ID” being the same feature in both tables. 
@@ -120,15 +119,21 @@
                 </div>
          </div>
 
+        <!-- Limitations and challenges section-->
+        <div class="about__container">
+            <div class="about__content">
+                <div style="border-radius: 25px; border: 2px solid #ff8177; padding: 20px; margin: 20px;">
+                    <h1 style="color: #6082fd;">Limitations</h1>
+                    <p>Real estate market data is not always up-to-date, which caused the analyses to be based on outdated information. 
+                        The data used also lacks niche markets and smaller geographic areas. It is thus not possible to predict the future, since the data relies on past performances and not the most accurate data.</p> 
+                    </div>
+                </div>
+         </div>
+
          <!-- Project section1-->
         <div class="charts__container">
             <div class="charts__content">
                 <div id="vis29" class = "chart-container"></div>
-                    <p style="color: white;"> The first bar chart represents the age distribution of the property purchases. 
-                        The age at which most customers purchase housing is in the <br> "40 to 50" years old bracket.
-                        This aligns with the typical age range when individuals achieve financial stability, allowing for <br> significant investments like property purhcases.
-                        The primary contributors to the market are thus middle-aged individuals. <br>
-                        This distribution emphasizes the importance of targeting middle-aged buyers in marketing strategies for the real estate market.</p> <br>
                 </div>
          </div>
 
@@ -136,9 +141,6 @@
         <div class="charts__container">
             <div class="charts__content">
                 <div id="vis28" class = "chart-container"></div>
-                <p style="color: white;">The second bar chart illustrates deal satisfaction by country. 
-                    The highest satisfaction levels are observed in Canada and Germany. <br> This may reflect efficient property markets in these countries.
-                    Denmark's low score might highlight the need for an intervention. </p> <br>
             </div>
         </div>
 
@@ -147,14 +149,6 @@
         <div class="charts__container">
             <div class="charts__content">
                 <div id="vis30" class = "chart-container"></div>
-                <p style="color: white;">This graph represents the US clients segmentation by state. 
-                    It is vidibke that California leads significantly, far surpassing other states. <br>
-                    This suggests that California is the largest market for apartments among the states. 
-                    The cumulative frequency curve shows that <br> a few states, California and Nevada, account for a large proportion of total sales.
-                    The curve flattens as it is approaching 100%, <br> indicating diminishing contributions from smaller markets.
-                    Overall, the data reveals a highly concentrated market, with California <br> and Nevada making up the majority of sales.
-                    This concentration likely reflects population density, demand, or other economic factors. <br>
-                    At the same time, states with lower sales, such as Utah and Kansas, may represent untapped markets with growth potential.</p> <br>
             </div>
         </div>
 
@@ -162,31 +156,12 @@
         <div class="charts__container">
             <div class="charts__content">
                 <div id="vis31" class = "chart-container"></div>
-                <p style="color: white;">The fourth graph represents the total revenue on the global real estate market.
-                    The sharp rise and fall might indicate reliance <br> on market trends or external factors, suggesting volatility in revenue generation.
-                    It was observed that 2007 was by far <br> the most popular year for sales.
-                    Taking into consideration the historical events, it is logical as it happened right before <br> the market crash in the US in 2008. 
-                    In fact, there are also no proper sales in 2009.  
-                    The post-2007 decline shows the importance <br> of adapting strategies which would mitigate the effects of external shocks. </p> <br>
-            </div>
         </div>
 
         <!-- Project section6-->
         <div class="charts__container">
             <div class="charts__content">
                 <div id="vis32" class = "chart-container"></div>
-                <p style="color: white;"> The fith graph represents the total sales, segmented by building type. The sharp peak in 2007, followed by a steep decline, <br> shows again the market's volatility.
-                    This data could imform strategies to prepare for market downturns and identify periods <br> of growth for future planning. </p> <br>
-
-                <p style="color: white;"> Based on the data, it can be concluded that most sold building were types 2 and 3. 
-                    However when examining the average price <br> and deal satisfaction, it is noticeable that type 4 has the highest average sale price at 290.000USD. 
-                    The average deal satisfaction <br> is also the highest for the type 4. Type 4 is also the highest in terms of area.
-                    It can be concluded that the type 4 buildings are <br> more luxurious or spacious. 
-                    This type of property is also not sold as often as others.
-                    Customers are more likely to buy smaller <br> and less expensive buildings,  as indicated by the trend observed in the dataset. 
-                    Real estate developers can consider this <br> information when devising their strategies. 
-                    One option is to rely on more standard building types, such as 2 and 3, <br>  and sell more buildings at more average price. 
-                    Another option is to invest in a few more luxurious properties <br>  and sell them at a higher price, thus creating a higher deal satisfaction. </p> <br>
             </div>
         </div> 
         
@@ -194,10 +169,6 @@
          <div class="charts__container">
              <div class="charts__content">
                 <div id="vis33" class = "chart-container"></div>
-                <p style="color: white;">The last graph represents the relationship between median housing price and population in California. 
-                    It is visible from the graph <br> that population density is correlated with higher housing prices, particularly in coastal and metropolitan areas. <br> The price of property increases as one gets close to the coast.
-                    This visualisation highlights the disparity in housing affordability <br> between urban and rural areas in California, which is essential for policy-making and investment decisions.
-                </p> <br>
             </div>
         </div> 
 
@@ -205,12 +176,16 @@
         <div class="about__container">
             <div class="about__content">
                 <div style="border-radius: 25px; border: 2px solid #ff8177; padding: 20px; margin: 20px;">
-                    <p style="color: white;">Overall, it has been established that market trends are highly sensitive to economic cycles, 
-                        with 2007 serving as a peak year before a sharp downturn due to external factors. 
-                        It has also been seen that middle-aged buyers dominate the market, indicating a need to tailor services and strategies on the real estate market to this financially active group.
-                        Moreover, markets with lower sales and satisfaction levels, such as Denmark or less populated U.S. states, offer untapped potential for development and customer-focused improvements.
-                        Lastly, as have been seen in California, which is the region with the highest number of apartments sold per year, the urban regions may remain the epicenter of activity in some cases. 
-                        This might come as a result of high population density and demand.</p>
+                    <h1 style="color: #6082fd;">Conclusions</h1>
+                    <p style="color: white;">Although not fully predictive and representative, this project has several insights. </p>
+                        <br>
+                        Firstly, it has been seen that market trends are <span style="color: #ff8177;">highly sensitive to economic cycles</span>, with 2007 serving as a peak year before a sharp downturn due to external factors, specifically economic crisis in US. </p>
+                        <br>
+                        It has also been seen that <span style="color: #ff8177;">middle-aged</span> buyers dominate the market, indicating a need to tailor services and strategies on the real estate market to this financially active group. </p>
+                        <br>
+                        Moreover, markets with <span style="color: #ff8177;">lower sales and satisfaction levels</span>, such as Denmark or less populated US states, offer untapped potential for development and customer-focused improvements. </p>
+                        <br>
+                        Lastly, as have been seen in California, which is the region with the highest number of apartments sold per year, the urban regions may remain the epicenter of activity in some cases, with prices increasing as one moves closer to <span style="color: #ff8177;">coastal area</span>. </p>
                 </div>
             </div>
         </div>
