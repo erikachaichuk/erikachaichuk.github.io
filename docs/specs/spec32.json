@@ -5,7 +5,6 @@
   },
   "title": {
     "text": "Total Number of Sales per Year by Building",
-    "subtitle": "Source: Kaggle",
     "subtitleFontStyle": "italic",
     "subtitleFontSize": 10,
     "anchor": "start",
