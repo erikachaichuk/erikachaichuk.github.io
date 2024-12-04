@@ -26,34 +26,31 @@
       "titleColor": "white"
     }
   },
-  "selection": {
-    "priceFilter": {
-      "type": "single",
-      "fields": ["median_house_value"],
-      "bind": {
+  "params": [{
+    "name": "pricefilter",
+    "bind": {
         "input": "range",
         "min": 0,
         "max": 500000,
         "step": 10000,
         "name": "Filter Median House Price: "
       }
-    }
-  },
+  }],
   "mark": {
     "type": "circle",
-    "opacity": 0.7
+    "opacity": {"expr": "((datum.median_house_value > pricefilter-10000)&(datum.median_house_value < pricefilter+10000))?1:0.1"}
   },
   "encoding": {
     "x": {
       "field": "longitude",
       "type": "quantitative",
-      "axis": {"title": "Longitude"},
+      "axis": {"title": "Longitude", "domain": false, "ticks": false, "labels": false },
       "scale": {"domain": [-125, -114]}
     },
     "y": {
       "field": "latitude",
       "type": "quantitative",
-      "axis": {"title": "Latitude"},
+      "axis": {"title": "Latitude", "domain": false, "ticks": false, "labels": false},
       "scale": {"domain": [32, 43]}
     },
     "size": {
@@ -80,10 +77,6 @@
       {"field": "longitude", "type": "quantitative"},
       {"field": "population", "type": "quantitative"},
       {"field": "median_house_value", "type": "quantitative"}
-    ],
-    "opacity": {
-      "condition": {"selection": "priceFilter", "value": 1},
-      "value": 0.1
-    }
+    ]
   }
 }
