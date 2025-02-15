@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beating Heart</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffccda;
+            overflow: hidden;
+            position: relative;
+        }
+        .heart {
+            display: none;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 1s infinite;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .heart:before,
+        .heart:after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+        .heart:after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+        }
+        .love-text {
+            display: none;
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            opacity: 0;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; bottom: -50px; }
+            100% { opacity: 1; bottom: 20px; }
+        }
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            position: absolute;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <button id="clickButton" onclick="showHeart()">Click Me</button>
+    <div class="heart" id="heart"></div>
+    <div class="love-text" id="loveText">Love you, Philip</div>
+    <script>
+        function showHeart() {
+            document.getElementById('heart').style.display = 'block';
+            document.getElementById('clickButton').style.display = 'none';
+            setTimeout(() => {
+                document.getElementById('loveText').style.display = 'block';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
